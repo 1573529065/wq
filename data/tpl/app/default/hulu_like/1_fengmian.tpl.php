@@ -24,7 +24,7 @@
 //$(document).ready(function(){
 var page = 2;
 function getmore(usertype) {
-    var lock = false;    
+    var lock = false;
     if(lock) return;
     lock = true;
     $.post("<?php  echo $this->createMobileUrl('getmore');?>",
@@ -34,14 +34,14 @@ function getmore(usertype) {
         function (data) {
             if (data != '') {
                 page++;
-                lock = false;                    
+                lock = false;
                 $("#fengmian_loading").show();
                 $("#user_list").append(data);
                 setTimeout("$('#fengmian_loading').hide()", 2000);
             } else {
                 $(".more_list").hide();
                 lock = true;
-            }                
+            }
     });
 }
 //});
