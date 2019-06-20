@@ -1,0 +1,42 @@
+{template 'common/header'}
+
+<div class="panel panel-default">
+  <div class="panel-heading">授权设置</div>
+  <div class="panel-body">
+
+
+
+<form class="form-horizontal" role="form" action="" method="POST">
+
+
+
+<!--表单开始-->
+  <div class="form-group">
+    <label class="col-sm-2 control-label">授权码</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="" name="shouquancode" value="{$shouquancode}" placeholder="请输入授权码">
+	  <span class="help-block">授权码</span>
+    </div>
+  </div>
+<!--表单结束-->
+<input type="hidden" name="type" value="2"/>
+
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+		  <input class="btn btn-default" type="submit" name="submit" value="提 交">
+
+    </div>
+  </div>
+
+<input type="hidden" name="token" value="{$_W['token']}"/>
+
+</form>
+
+
+
+
+
+  </div>
+  </div>
+{template 'common/footer'}

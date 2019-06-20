@@ -1,0 +1,32 @@
+<tr>
+<td>{$chat['news_id']}</td>
+
+<td>
+{if $chat['news_pid']=='1'}<span class="label label-danger">未读</span>
+{elseif $chat['news_pid']=='2'}<span class="label label-success">已读</span>
+{else}{/if}
+</td>
+
+<td>{php echo getnickname($_W['uniacid'],$chat['openid']);}</td>
+
+<td><img style="width:60px;height:60px;border-radius:50%;" src="{php echo getavatar($_W['uniacid'],$chat['openid']);}"/></td>
+
+<td>{php echo getnickname($_W['uniacid'],$chat['news_openid']);}</td>
+
+<td><img style="width:60px;height:60px;border-radius:50%;" src="{php echo getavatar($_W['uniacid'],$chat['news_openid']);}"/></td>
+
+<td>
+{if $chat['news_type']=="1"}{$chat['news_content']}
+{elseif $chat['news_type']=="4"}<img style="width:100px;height:100px;" src="{$_W['attachurl']}{$chat['news_content']}"/>
+{/if}
+</td>
+
+<td>
+{php echo date('Y-m-d H:i:s',$chat['news_time']);}<br/>
+{$chat['news_ip']}<br/>
+{$chat['news_container']}<br/>
+{$chat['news_os']}
+</td>
+
+
+</tr>

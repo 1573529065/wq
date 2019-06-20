@@ -1,0 +1,70 @@
+<style type="text/css">
+#picture_many{width:100%;height:120px;margin:0px auto;overflow:auto;}
+#picture_many_style{float:left;width:25%;height:80px;}
+.picture_many_ok{width:60px;height:60px;margin:10px auto;
+background-image:url("{MODULE_URL}public/images/upload.png");background-size:100% 100%;}
+.picture_many_pic{width:60px;height:60px;margin:10px auto;}
+.picture_many_pic img{width:100%;height:100%;}
+</style>
+
+<div id="picture_many">
+<div id="picture_many_style"><div class="picture_many_ok"></div></div>
+<!--
+<div id="picture_many_style"><div class="picture_many_pic"></div></div>
+-->
+</div>
+
+
+<script>
+wx.ready(function(){
+
+//选择照片开始
+  $(".picture_many_ok").click(function(){
+wx.chooseImage({
+    count:1, // 默认9
+    sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+    sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+    success: function (res) {
+        var localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+		uploadImage(localIds);
+    }
+});
+  });
+//选择照片结束
+
+
+//上传照片开始
+function uploadImage(e){
+	for(var i=0;i<e.length;i++){
+wx.uploadImage({
+    localId:e[i], // 需要上传的图片的本地ID，由chooseImage接口获得
+    isShowProgressTips: 1, // 默认为1，显示进度提示
+    success: function (res) {
+        var serverId = res.serverId; // 返回图片的服务器端ID
+		alert(serverId);
+		downloadImage(serverId);
+
+    }
+});
+}
+}
+//上传照片结束
+
+//下载照片开始
+function downloadImage(m){
+    $.post("{php echo $this->createMobileUrl('download',array('type'=>'1'));}",
+    {
+		media_id:m,
+   
+    },
+    function(data,status){
+      $("#picture_many").append("<div id='picture_many_style'><div class='picture_many_pic'><img src='{$_W['attachurl']}"+data+"'/></div><input type='hidden' name='picture[]' value='"+data+"'/></div>");
+	  //开始
+	  
+	  //结束
+    });
+}
+//下载照片结束
+
+});
+	</script>

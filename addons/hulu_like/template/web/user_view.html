@@ -1,0 +1,144 @@
+{template 'common/header'}
+    <link rel="stylesheet" type="text/css" href="{MODULE_URL}template/web/public.css">
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#home" role="tab" data-toggle="tab">基本信息</a></li>
+  <li role="presentation"><a href="#profile" role="tab" data-toggle="tab">详情信息</a></li>
+  <li role="presentation"><a href="#messages" role="tab" data-toggle="tab">择偶要求</a></li>
+  <li role="presentation"><a href="#settings" role="tab" data-toggle="tab">更多信息</a></li>
+    <li role="presentation"><a href="#one" role="tab" data-toggle="tab">会员照片</a></li>
+	  <li role="presentation"><a href="#two" role="tab" data-toggle="tab">会员订单</a></li>
+  <li role="presentation"><a href="#three" role="tab" data-toggle="tab">会员查看联系方式</a></li>
+  <!--
+  <li role="presentation"><a href="#four" role="tab" data-toggle="tab">更多信息</a></li>
+  <li role="presentation"><a href="#five" role="tab" data-toggle="tab">更多信息</a></li>
+  <li role="presentation"><a href="#six" role="tab" data-toggle="tab">更多信息</a></li>
+  <li role="presentation"><a href="#seven" role="tab" data-toggle="tab">更多信息</a></li>
+-->
+
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane active" id="home">
+
+  <!--列表循环开始-->
+  <div class="panel panel-default">
+  <div class="panel-heading">基本信息</div>
+  <div class="panel-body">
+  {template 'web/page/user_view_1'}
+  </div>
+  </div>
+  <!--列表循环结束-->
+
+  </div>
+  <div role="tabpanel" class="tab-pane" id="profile">
+
+   <!--列表循环开始-->
+  <div class="panel panel-default">
+  <div class="panel-heading">详细信息</div>
+  <div class="panel-body">
+  {template 'web/page/user_view_2'}
+  </div>
+  </div>
+  <!--列表循环结束-->
+
+  </div>
+  <div role="tabpanel" class="tab-pane" id="messages">
+
+   <!--列表循环开始-->
+  <div class="panel panel-default">
+  <div class="panel-heading">择偶要求</div>
+  <div class="panel-body">
+  {template 'web/page/user_view_3'}
+  </div>
+   </div>
+  <!--列表循环结束-->
+
+  </div>
+
+  <div role="tabpanel" class="tab-pane" id="settings">
+    <!--列表循环开始-->
+  <div class="panel panel-default">
+  <div class="panel-heading">更多信息</div>
+  <div class="panel-body">
+  {template 'web/page/user_view_4'}
+  </div>
+   </div>
+  <!--列表循环结束-->
+  </div>
+
+    <div role="tabpanel" class="tab-pane" id="one">
+	  <!--列表循环开始-->
+  <div class="panel panel-default">
+  <div class="panel-heading">会员照片</div>
+  <div class="panel-body">
+
+  {loop $picture $key $picture}
+{template 'web/page/picture_list'}
+{/loop}
+
+  </div>
+   </div>
+  <!--列表循环结束-->
+	</div>
+
+  <div role="tabpanel" class="tab-pane" id="two">
+    <!--列表循环开始-->
+  <!--列表循环开始-->
+   
+<div class="panel panel-default">
+  <div class="panel-heading">所有订单</div>
+  <div class="panel-body">
+
+
+<table class="table table-hover">
+{template 'web/banner/order'}
+<tbody>
+{loop $order $key $order}
+{template 'web/page/order_list'}
+{/loop}
+</tbody>
+</table>
+</div>
+</div>
+  <!--列表循环结束-->
+  <!--列表循环结束-->
+  </div>
+
+  <div role="tabpanel" class="tab-pane" id="three">
+    <!--列表循环开始-->
+   <!--列表循环开始-->
+   
+<div class="panel panel-default">
+  <div class="panel-heading">所有查看联系方式</div>
+  <div class="panel-body">
+
+ 
+
+<table class="table table-hover">
+{template 'web/banner/contact'}
+<tbody>
+{loop $contact $key $contact}
+{template 'web/page/contact_list'}
+{/loop}
+</tbody>
+</table>
+</div>
+</div>
+  <!--列表循环结束-->
+  <!--列表循环结束-->
+  </div>
+
+  <!--
+  <div role="tabpanel" class="tab-pane" id="four">...</div>
+  <div role="tabpanel" class="tab-pane" id="five">...</div>
+  <div role="tabpanel" class="tab-pane" id="six">...</div>
+  <div role="tabpanel" class="tab-pane" id="seven">...</div>
+-->
+
+</div>
+
+
+{template 'common/footer'}

@@ -1,0 +1,22 @@
+/*chongzhi_one*/
+#chongzhi_one{width:80%;height:50px;margin:50px auto 0px;border:1px solid #999;border-radius:5px;}
+.chongzhi_one_a{float:left;width:25%;height:50px;background-color:#EEE;border-top-left-radius:5px;border-bottom-left-radius:5px;
+text-align:center;line-height:50px;font-size:32px;color:#000;overflow:hidden;}
+
+.chongzhi_one_b{float:left;width:50%;height:50px;}
+.chongzhi_one_b input{float:left;width:98%;height:40px;margin:5px 1%;border:none;
+text-align:center;line-height:40px;font-size:16px;color:#000;overflow:hidden;}
+
+.chongzhi_one_c{float:left;width:25%;height:50px;background-color:#EEE;border-top-right-radius:5px;border-bottom-right-radius:5px;
+text-align:center;line-height:50px;font-size:32px;color:#000;overflow:hidden;}
+
+/*chongzhi_two*/
+#chongzhi_two{width:80%;height:50px;margin:20px auto;
+text-align:left;line-height:50px;font-size:12px;color:#666;overflow:hidden;}
+#chongzhi_two span.chongzhi_jinbi,.chongzhi_money{color:#FA4D47;}
+
+/*chongzhi_ok*/
+#chongzhi_ok{width:100%;height:50px;background-color:#FA4D47;
+position:fixed;bottom:0px;left:0px;z-index:100;}
+#chongzhi_ok input{width:98%;height:40px;margin:5px 1%;background-color:#FA4D47;border:none;
+text-align:center;line-height:40px;font-size:16px;color:#FFF;overflow:hidden;}

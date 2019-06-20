@@ -1,0 +1,16 @@
+/*money_banner*/
+#money_banner{width:100%;height:50px;margin:0px auto;}
+
+.money_banner_style{float:left;width:25%;height:50px;border-bottom:1px solid #EEE;
+text-align:center;line-height:50px;font-size:16px;color:#000;overflow:hidden;}
+
+.money_banner_new{float:left;width:25%;height:50px;border-bottom:1px solid #FA4D47;
+text-align:center;line-height:50px;font-size:16px;color:#FA4D47;overflow:hidden;}
+
+/*money_body*/
+#money_body{width:100%;height:auto;margin:0px auto;}
+
+#money_one{width:100%;height:auto;margin:0px auto;}
+#money_two{width:100%;height:auto;margin:0px auto;display:none;}
+#money_three{width:100%;height:auto;margin:0px auto;display:none;}
+#money_four{width:100%;height:auto;margin:0px auto;display:none;}

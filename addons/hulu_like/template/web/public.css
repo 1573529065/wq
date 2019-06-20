@@ -1,0 +1,15 @@
+
+#hulu_pic_list{float:left;width:12.5%;height:200px;background-color:#FFF;border-bottom:10px solid #FFF;}
+
+.hulu_pic_list_img{width:150px;height:150px;background-color:#FFF;margin:0px auto;position:relative;}
+.hulu_pic_list_tag_1{position:absolute;width:60p;height:20px;top:0px;right:0px;z-index:100;background-color:#999;
+text-align:center;line-height:20px;font-size:16px;color:#FFF;overflow:hidden;}
+.hulu_pic_list_tag_2{position:absolute;width:60p;height:20px;top:0px;right:0px;z-index:100;background-color:#FF6633;
+text-align:center;line-height:20px;font-size:16px;color:#FFF;overflow:hidden;}
+
+.hulu_pic_list_tag_3{position:absolute;width:60p;height:20px;top:0px;right:0px;z-index:100;background-color:green;
+text-align:center;line-height:20px;font-size:16px;color:#FFF;overflow:hidden;}
+
+
+.hulu_pic_list_img img{width:100%;height:100%;}
+.hulu_pic_list_p{width:100%;height:50px;margin:0px auto;}

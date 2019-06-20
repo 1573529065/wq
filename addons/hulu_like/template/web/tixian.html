@@ -1,0 +1,34 @@
+{template 'common/header'}
+
+
+
+<ul class="nav nav-tabs">
+ <li role="presentation" {if $type=="0"}class="active"{/if}><a href="{php echo $this->createWebUrl('tixian',array('type'=>'0'));}">所有提现</a></li>
+  <li role="presentation" {if $type=="3"}class="active"{/if}><a href="{php echo $this->createWebUrl('tixian',array('type'=>'3'));}">已处理提现</a></li>
+  <li role="presentation" {if $type=="2"}class="active"{/if}><a href="{php echo $this->createWebUrl('tixian',array('type'=>'2'));}">待处理提现</a></li>
+    <li role="presentation" {if $type=="1"}class="active"{/if}><a href="{php echo $this->createWebUrl('tixian',array('type'=>'1'));}">已拒绝提现</a></li>
+</ul>
+
+
+   <!--列表循环开始-->
+   
+<div class="panel panel-default">
+  <div class="panel-heading">所有提现</div>
+  <div class="panel-body">
+
+
+<table class="table table-hover">
+{template 'web/banner/tixian'}
+<tbody>
+{loop $tixian $key $tixian}
+{template 'web/page/tixian_list'}
+{/loop}
+</tbody>
+</table>
+</div>
+</div>
+  <!--列表循环结束-->
+
+{$pagination}
+
+{template 'common/footer'}

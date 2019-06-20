@@ -1,0 +1,58 @@
+
+
+{template 'header'}
+{php echo register_jssdk(false);}
+<link rel="stylesheet" type="text/css" href="{MODULE_URL}template/mobile/style/fujin.css">
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak={$make['make_key_baidu']}"></script>
+<style type="text/css">
+#allmap{width:360px;height:720px;margin:0px auto;}
+</style>
+
+	<div id="allmap"></div>
+
+
+	<script>
+	wx.ready(function () {
+	
+
+	wx.getLocation({
+    type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+    success: function (res) {
+        var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+        var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+        var speed = res.speed; // 速度，以米/每秒计
+        var accuracy = res.accuracy; // 位置精度
+alert(latitude+','+longitude);
+		//百度开始
+
+			var map = new BMap.Map("allmap");
+	var point = new BMap.Point(longitude,latitude);
+		//var point = new BMap.Point(116.404, 39.915);
+
+	map.centerAndZoom(point, 15);
+	// 编写自定义函数,创建标注
+	function addMarker(point){
+	  var marker = new BMap.Marker(point);
+	  map.addOverlay(marker);
+	}
+	// 随机向地图添加25个标注
+	var bounds = map.getBounds();
+	var sw = bounds.getSouthWest();
+	var ne = bounds.getNorthEast();
+	var lngSpan = Math.abs(sw.lng - ne.lng);
+	var latSpan = Math.abs(ne.lat - sw.lat);
+	for (var i = 0; i < 125; i ++) {
+		var point = new BMap.Point(sw.lng + lngSpan * (Math.random() * 0.7), ne.lat - latSpan * (Math.random() * 0.7));
+		addMarker(point);
+	}
+
+		//百度结束
+    }
+});
+
+
+
+	});
+	</script>
+
+{template 'footer'}

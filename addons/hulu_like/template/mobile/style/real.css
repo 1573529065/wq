@@ -1,0 +1,16 @@
+/*real_one*/
+#real_one{width:80%;height:210px;margin:50px auto;}
+#real_one_style{width:100%;height:50px;margin:10px auto;}
+.real_one_a{float:left;width:70%;height:50px;}
+.real_one_a input{width:98%;height:40px;margin:5px auto;border:none;border:1px solid #DDD;
+text-align:left;line-height:40px;font-size:16px;color:#000;overflow:hidden;}
+.real_one_b{float:right;width:30%;height:50px;}
+.real_one_b_p{width:98%;height:40px;margin:5px auto;background-color:#FA4D47;
+text-align:center;line-height:40px;font-size:16px;color:#FFF;overflow:hidden;}
+
+.real_one_c input{width:98%;height:40px;margin:5px auto;border:none;border:1px solid #DDD;
+text-align:left;line-height:40px;font-size:16px;color:#000;overflow:hidden;}
+
+.real_one_d input{width:98%;height:40px;margin:5px auto;background-color:#FA4D47;border:none;
+text-align:center;line-height:40px;font-size:16px;color:#FFF;overflow:hidden;}
+

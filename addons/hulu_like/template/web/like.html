@@ -1,0 +1,27 @@
+{template 'common/header'}
+
+
+
+
+   <!--列表循环开始-->
+   
+<div class="panel panel-default">
+  <div class="panel-heading">管理喜欢</div>
+  <div class="panel-body">
+
+
+<table class="table table-hover">
+{template 'web/banner/like'}
+<tbody>
+{loop $like $key $like}
+{template 'web/page/like_list'}
+{/loop}
+</tbody>
+</table>
+</div>
+</div>
+  <!--列表循环结束-->
+
+{$pagination}
+
+{template 'common/footer'}

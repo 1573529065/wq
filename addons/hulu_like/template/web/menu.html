@@ -1,0 +1,25 @@
+{template 'common/header'}
+
+<div class="panel panel-default">
+  <div class="panel-heading">菜单设置</div>
+  <div class="panel-body">
+
+
+
+<table class="table table-hover">
+{template 'web/banner/menu'}
+
+
+<tbody>
+{loop $caidan $key $caidan}
+{template 'web/page/menu_list'}
+
+
+{/loop}
+</tbody>
+
+</table>
+</div>
+</div>
+
+{template 'common/footer'}

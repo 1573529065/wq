@@ -1,0 +1,27 @@
+{template 'header'}
+<link rel="stylesheet" type="text/css" href="{MODULE_URL}template/mobile/style/gift.css">
+
+<!--顶部菜单导航开始-->
+{php echo topmenu($this->createMobileUrl('my'),'收到的礼物','touming.png');}
+<!--顶部菜单导航结束-->
+
+{if empty($present)}{template 'emptydata'}{/if}
+
+<div id="gift_list">
+{loop $present $key $present}
+
+<a href="{php echo $this->createMobileUrl('view',array('vid'=>getuid($_W['uniacid'],$present['present_send'])));}">
+
+<div class="gift_list_style">
+<div class="gift_list_pic">
+<img src="{$_W['attachurl']}{php echo getgiftpic($_W['uniacid'],$present['gift_id']);}"/>
+</div>
+<div class="gift_list_name">{php echo getgiftname($_W['uniacid'],$present['gift_id']);}</div>
+<div class="gift_list_money">￥：{php echo getgiftmoney($_W['uniacid'],$present['gift_id']);}</div>
+</div>
+</a>
+
+{/loop}
+</div>
+
+{template 'foot'}

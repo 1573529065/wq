@@ -1,0 +1,41 @@
+<tr>
+
+<td>{$taocan['taocan_id']}</td>
+
+
+<td>
+{if $taocan['taocan_pid']=='1'}<span class="label label-success">显示</span>
+{elseif $taocan['taocan_pid']=='2'}<span class="label label-danger">隐藏</span>
+
+{else}
+{/if}
+</td>
+
+<td>{$taocan['taocan_did']}</td>
+
+
+<td>{$taocan['taocan_liaotian_jinbi']}</td>
+<td>{$taocan['taocan_liaotian_person']}</td>
+<td>{$taocan['taocan_liaotian_time']}</td>
+
+
+
+
+
+
+<td>
+
+
+{if $taocan['taocan_pid']=='2'}
+<a class="btn btn-default" href="{php echo $this->createWebUrl('taocan_update',array('taocan_id'=>$taocan['taocan_id'],'taocan_pid'=>'1'));}" role="button"><i class="fa fa-check fa-fw"></i></a>
+{elseif $taocan['taocan_pid']=='1'}
+<a class="btn btn-default" href="{php echo $this->createWebUrl('taocan_update',array('taocan_id'=>$taocan['taocan_id'],'taocan_pid'=>'2'));}" role="button"><i class="fa fa-times fa-fw"></i></a>
+{else}{/if}
+
+<a class="btn btn-default" href="{php echo $this->createWebUrl('taocan_edit',array('taocan_id'=>$taocan['taocan_id']));}" role="button"><i class="fa fa-pencil fa-fw"></i></a>
+
+<a onclick="delcfm()" class="btn btn-default" href="{php echo $this->createWebUrl('taocan_del',array('taocan_id'=>$taocan['taocan_id']));}" role="button"><i class="fa fa-trash-o fa-fw"></i></a>
+
+</td>
+
+</tr>

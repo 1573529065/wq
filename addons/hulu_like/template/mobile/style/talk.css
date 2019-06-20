@@ -1,0 +1,6 @@
+/*talk_fabu*/
+#talk_fabu{width:40px;height:40px;background-color:#FFF;border:1px solid #6aabe0;border-radius:50%;
+position:fixed;bottom:100px;right:10px;z-index:100;}
+
+.talk_fabu_pic{width:30px;height:30px;margin:5px auto;border-radius:0px;
+background-image:url("../../../public/images/talk_fabu.png");background-size:100% 100%;}

@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://www.we7.cc" versionCode="0.6">
+	<application setting="true">
+		<name><![CDATA[相亲交友]]></name>
+		<identifie><![CDATA[hulu_like]]></identifie>
+		<version><![CDATA[5.3.0]]></version>
+		<type><![CDATA[business]]></type>
+		<ability><![CDATA[相亲交友]]></ability>
+		<description><![CDATA[相亲交友]]></description>
+		<author><![CDATA[乐坊科技微信号：rscmwl]]></author>
+		<url><![CDATA[https://shop285989266.taobao.com]]></url>
+	</application>
+	<platform>
+		<subscribes>
+		</subscribes>
+		<handles>
+			<message type="text" />
+			<message type="image" />
+			<message type="voice" />
+			<message type="video" />
+			<message type="shortvideo" />
+			<message type="location" />
+			<message type="link" />
+			<message type="subscribe" />
+			<message type="qr" />
+			<message type="trace" />
+			<message type="click" />
+			<message type="merchant_order" />
+		</handles>
+		<rule embed="true" />
+		<card embed="false" />
+		<supports>
+		</supports>
+	</platform>
+	<bindings>
+		<cover>
+			<entry title="我的" do="my" state="我的" direct="true" />
+			<entry title="说说" do="talk" state="说说" direct="true" />
+			<entry title="聊天" do="chat" state="聊天" direct="true" />
+			<entry title="活动" do="active" state="活动" direct="true" />
+			<entry title="封面" do="fengmian" state="封面" direct="true" />
+		</cover>
+		<rule>
+			<entry title="规则" do="guize" state="规则" direct="true" />
+		</rule>
+		<menu>
+			<entry title="操作数据库" do="dealsql" state="操作数据库" direct="false" />
+			<entry title="喜欢" do="like" state="喜欢" direct="false" />
+			<entry title="访客" do="viewer" state="访客" direct="false" />
+			<entry title="推广记录" do="share" state="推广记录" direct="false" />
+			<entry title="提现管理" do="tixian" state="提现管理" direct="false" />
+			<entry title="说说管理" do="talk" state="说说管理" direct="false" />
+			<entry title="说说评论管理" do="talk_pinglun" state="说说评论管理" direct="false" />
+			<entry title="礼物管理" do="gift" state="礼物管理" direct="false" />
+			<entry title="获赠礼物记录" do="present" state="获赠礼物记录" direct="false" />
+			<entry title="聊天权限" do="liaodou" state="聊天权限" direct="false" />
+			<entry title="模板消息" do="muban" state="模板消息" direct="false" />
+			<entry title="资金明细" do="money" state="资金明细" direct="false" />
+			<entry title="充值记录" do="chongzhi" state="充值记录" direct="false" />
+			<entry title="活动报名" do="join" state="活动报名" direct="false" />
+			<entry title="聊天记录" do="chat" state="聊天记录" direct="false" />
+			<entry title="活动管理" do="active" state="活动管理" direct="false" />
+			<entry title="模拟会员" do="moni" state="模拟" direct="false" />
+			<entry title="广告管理" do="ads" state="广告管理" direct="false" />
+			<entry title="系统收支" do="system" state="系统收支" direct="false" />
+			<entry title="订单管理" do="order" state="订单管理" direct="false" />
+			<entry title="查看联系方式" do="contact" state="查看联系方式" direct="false" />
+			<entry title="会员管理" do="user" state="会员管理" direct="false" />
+			<entry title="照片管理" do="picture" state="照片管理" direct="false" />
+			<entry title="网站设置" do="make" state="网站设置" direct="false" />
+			<entry title="聊天套餐" do="taocan" state="聊天套餐" direct="false" />
+			<entry title="自定义菜单" do="menu" state="" direct="false" />
+		</menu>
+		<home>
+			<entry title="首页" do="shouye" state="首页" direct="true" />
+		</home>
+		<profile>
+			<entry title="个人" do="geren" state="个人" direct="true" />
+		</profile>
+		<shortcut>
+			<entry title="快捷" do="kuaijie" state="快捷" direct="true" />
+		</shortcut>
+		<function>
+			<entry title="独立" do="duli" state="独立" direct="true" />
+		</function>
+	</bindings>
+	<install><![CDATA[CREATE TABLE IF NOT EXISTS `ims_hulu_like_active` (
+  `active_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `openid` varchar(100) NOT NULL,
+  `active_pid` int(10) unsigned NOT NULL DEFAULT '2',
+  `active_title` varchar(100) NOT NULL,
+  `active_type` int(10) NOT NULL,
+  `active_boy` int(10) NOT NULL,
+  `active_girl` int(10) NOT NULL,
+  `active_money` decimal(10,4) NOT NULL,
+  `active_address` text NOT NULL,
+  `active_starttime` varchar(100) NOT NULL,
+  `active_endtime` varchar(100) NOT NULL,
+  `active_wechat` varchar(100) NOT NULL,
+  `active_tel` varchar(100) NOT NULL,
+  `active_content` text NOT NULL,
+  `active_time` varchar(100) NOT NULL,
+  `active_ip` varchar(100) NOT NULL,
+  `active_container` varchar(100) NOT NULL,
+  `active_os` varchar(100) NOT NULL,
+  PRIMARY KEY (`active_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hulu_like_ads` (
+  `ads_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `ads_pid` int(10) unsigned NOT NULL DEFAULT '1',
+  `ads_did` int(10) NOT NULL,
+  `ads_title` varchar(100) NOT NULL,
+  `ads_pic` text NOT NULL,
+  `ads_link` text NOT NULL,
+  `ads_time` varchar(100) NOT NULL,
+  `ads_ip` varchar(100) NOT NULL,
+  PRIMARY KEY (`ads_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hulu_like_chongzhi` (
+  `chongzhi_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `openid` varchar(100) NOT NULL,
+  `chongzhi_type` int(10) NOT NULL COMMENT '1为充值/2为消费',
+  `chongzhi_jinbi` int(10) NOT NULL,
+  `order_money` decimal(10,4) NOT NULL,
+  `chongzhi_time` varchar(100) NOT NULL,
+  `chongzhi_ip` varchar(100) NOT NULL,
+  `chongzhi_container` varchar(100) NOT NULL,
+  `chongzhi_os` varchar(100) NOT NULL,
+  PRIMARY KEY (`chongzhi_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hulu_like_contact` (
+  `contact_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `openid` varchar(100) NOT NULL COMMENT '查看者',
+  `contact_openid` varchar(100) NOT NULL COMMENT '被查看者',
+  `contact_time` varchar(100) NOT NULL,
+  `contact_ip` varchar(100) NOT NULL,
+  `contact_container` varchar(100) NOT NULL,
+  `contact_os` varchar(100) NOT NULL,
+  PRIMARY KEY (`contact_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hulu_like_gift` (
+  `gift_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `gift_pid` int(10) unsigned NOT NULL DEFAULT '1',
+  `gift_did` int(10) NOT NULL,
+  `gift_name` varchar(100) NOT NULL,
+  `gift_picture` text NOT NULL,
+  `gift_money` decimal(10,4) NOT NULL,
+  `gift_time` varchar(100) NOT NULL,
+  `gift_ip` varchar(100) NOT NULL,
+  PRIMARY KEY (`gift_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hulu_like_join` (
+  `join_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `join_pid` int(10) unsigned NOT NULL DEFAULT '2',
+  `openid` varchar(100) NOT NULL,
+  `active_id` int(10) NOT NULL,
+  `join_sex` int(10) NOT NULL,
+  `join_name` varchar(100) NOT NULL,
+  `join_wechat` varchar(100) NOT NULL,
+  `join_tel` varchar(100) NOT NULL,
+  `join_time` varchar(100) NOT NULL,
+  `join_ip` varchar(100) NOT NULL,
+  `join_container` varchar(100) NOT NULL,
+  `join_os` varchar(100) NOT NULL,
+  PRIMARY KEY (`join_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hulu_like_liaodou` (
+  `liaodou_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `openid` varchar(100) NOT NULL,
+  `liaodou_pid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '1为未使用/2为使用中/3为已使用',
+  `liaodou_openid` varchar(100) NOT NULL,
+  `liaodou_endtime` varchar(100) NOT NULL,
+  `liaodou_time` varchar(100) NOT NULL,
+  `liaodou_ip` varchar(100) NOT NULL,
+  `liaodou_container` varchar(100) NOT NULL,
+  `liaodou_os` varchar(100) NOT NULL,
+  PRIMARY KEY (`liaodou_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hulu_like_like` (
+  `like_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `openid` varchar(100) NOT NULL COMMENT '暗恋者',
+  `like_openid` varchar(100) NOT NULL COMMENT '被暗恋者',
+  `like_time` varchar(100) NOT NULL,
+  `like_ip` varchar(100) NOT NULL,
+  `like_container` varchar(100) NOT NULL,
+  `like_os` varchar(100) NOT NULL,
+  PRIMARY KEY (`like_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hulu_like_make` (
+  `make_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `make_web_title` text NOT NULL,
+  `make_vip_year` decimal(10,4) NOT NULL,
+  `make_vip_quarter` decimal(10,4) NOT NULL,
+  `make_vip_month` decimal(10,4) NOT NULL,
+  `make_vip_contact` int(10) NOT NULL,
+  `make_vip_freechat` int(10) unsigned NOT NULL DEFAULT '1' COMMENT '1为付费/2为免费',
+  `make_key` varchar(100) NOT NULL,
+  `make_secret` varchar(100) NOT NULL,
+  `make_sign` varchar(100) NOT NULL,
+  `make_msgtemplate` varchar(100) NOT NULL,
+  `make_key_baidu` varchar(100) NOT NULL,
+  `make_key_qq` varchar(100) NOT NULL,
+  `make_user_pid` int(10) unsigned NOT NULL DEFAULT '2',
+  `make_active_proportion` decimal(10,4) NOT NULL,
+  `make_jinbi_name` varchar(100) NOT NULL,
+  `make_jinbi_bili` int(10) NOT NULL,
+  `make_liaotian_free` int(10) NOT NULL,
+  `make_liaotian_jinbi` int(10) NOT NULL,
+  `make_liaotian_person` int(10) NOT NULL,
+  `make_liaotian_time` varchar(100) NOT NULL,
+  `make_tuiguang_bili` decimal(10,4) NOT NULL,
+  `make_bili_gift` decimal(10,4) NOT NULL,
+  `make_bili_dashang` decimal(10,4) NOT NULL,
+  `make_bili_liaotian` decimal(10,4) NOT NULL,
+  `make_bili_zanshang` decimal(10,4) NOT NULL,
+  `make_tixian_time` int(10) NOT NULL,
+  `make_tixian_money` decimal(10,4) NOT NULL,
+  `make_kefu_qrcode` text NOT NULL,
+  `make_share_title` text NOT NULL,
+  `make_share_content` text NOT NULL,
+  `make_share_picture` text NOT NULL,
+  `make_authcode` varchar(100) NOT NULL,
+  `make_time` varchar(100) NOT NULL,
+  `make_ip` varchar(100) NOT NULL,
+  `chat_num_replace` char(1) NOT NULL,
+  `look_user_tel_type` int(1) NOT NULL,
+  PRIMARY KEY (`make_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hulu_like_member` (
+  `member_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `openid` varchar(100) NOT NULL,
+  `member_birthday` varchar(100) NOT NULL,
+  `member_height` varchar(100) NOT NULL,
+  `member_weight` varchar(100) NOT NULL,
+  `member_purpose` int(10) NOT NULL,
+  `member_feeling` int(10) NOT NULL,
+  `member_marry` int(10) NOT NULL,
+  `member_wechat` varchar(100) NOT NULL,
+  `member_tel` varchar(100) NOT NULL,
+  `member_province` varchar(100) NOT NULL,
+  `member_city` varchar(100) NOT NULL,
+  `member_district` varchar(100) NOT NULL,
+  `member_content` text NOT NULL,
+  `member_edu` int(2) NOT NULL,
+  `member_salary` int(2) NOT NULL,
+  `member_house` int(1) NOT NULL,
+  `member_career` int(2) NOT NULL,
+  `member_nation` varchar(32) NOT NULL,
+  PRIMARY KEY (`member_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hulu_like_menu` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `weid` int(10) NOT NULL,
+  `sort` int(4) NOT NULL,
+  `donot_show` int(1) NOT NULL,
+  `menu_index` varchar(32) NOT NULL,
+  `name` varchar(32) NOT NULL,
+  `pic` varchar(100) NOT NULL,
+  `link` varchar(128) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `weid` (`weid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hulu_like_money` (
+  `money_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `openid` varchar(100) NOT NULL,
+  `money_pid` int(10) unsigned NOT NULL DEFAULT '1' COMMENT '1为失败/2为审核/3为成功',
+  `money_state` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '1为支出/2为提现/3为收入/4为提成',
+  `money_type` int(10) NOT NULL,
+  `money_money` decimal(10,4) NOT NULL,
+  `money_time` varchar(100) NOT NULL,
+  `money_ip` varchar(100) NOT NULL,
+  `money_container` varchar(100) NOT NULL,
+  `money_os` varchar(100) NOT NULL,
+  PRIMARY KEY (`money_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hulu_like_more` (
+  `more_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `openid` varchar(100) NOT NULL,
+  `more_real_tel_pid` int(10) unsigned NOT NULL DEFAULT '1',
+  `more_real_tel` varchar(100) NOT NULL,
+  `more_real_code` varchar(100) NOT NULL,
+  `more_tixian_name` varchar(100) NOT NULL,
+  `more_tixian_tel` varchar(100) NOT NULL,
+  `more_tixian_wechat` varchar(100) NOT NULL,
+  `more_tixian_alipay` varchar(100) NOT NULL,
+  PRIMARY KEY (`more_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hulu_like_muban` (
+  `muban_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `muban_send_news` varchar(100) NOT NULL,
+  PRIMARY KEY (`muban_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hulu_like_news` (
+  `news_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `news_pid` int(10) unsigned NOT NULL DEFAULT '1',
+  `news_type` int(10) NOT NULL,
+  `openid` varchar(100) NOT NULL,
+  `news_openid` varchar(100) NOT NULL,
+  `news_content` text NOT NULL,
+  `news_time` varchar(100) NOT NULL,
+  `news_ip` varchar(100) NOT NULL,
+  `news_container` varchar(100) NOT NULL,
+  `news_os` varchar(100) NOT NULL,
+  PRIMARY KEY (`news_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hulu_like_order` (
+  `order_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `openid` varchar(100) NOT NULL,
+  `order_pid` int(10) unsigned NOT NULL DEFAULT '1',
+  `order_type` int(10) NOT NULL,
+  `order_num` varchar(100) NOT NULL,
+  `order_money` decimal(10,4) NOT NULL,
+  `order_starttime` varchar(100) NOT NULL,
+  `order_endtime` varchar(100) NOT NULL,
+  `order_ip` varchar(100) NOT NULL,
+  `order_container` varchar(100) NOT NULL,
+  `order_os` varchar(100) NOT NULL,
+  `order_vip_days` int(10) NOT NULL,
+  `order_join_id` int(10) NOT NULL,
+  `order_gift_receive` varchar(100) NOT NULL,
+  `order_gift_id` int(10) NOT NULL,
+  `order_dashang_receive` varchar(100) NOT NULL,
+  `order_talk_id` int(10) NOT NULL,
+  PRIMARY KEY (`order_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hulu_like_picture` (
+  `picture_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `openid` varchar(100) NOT NULL,
+  `picture_pid` int(10) unsigned NOT NULL DEFAULT '2',
+  `picture_type` varchar(100) NOT NULL,
+  `picture_vid` int(10) NOT NULL,
+  `picture_url` text NOT NULL,
+  `picture_time` varchar(100) NOT NULL,
+  `picture_ip` varchar(100) NOT NULL,
+  `picture_container` varchar(100) NOT NULL,
+  `picture_os` varchar(100) NOT NULL,
+  PRIMARY KEY (`picture_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hulu_like_present` (
+  `present_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `openid` varchar(100) NOT NULL,
+  `present_send` varchar(100) NOT NULL,
+  `gift_id` int(10) NOT NULL,
+  `present_time` varchar(100) NOT NULL,
+  `present_ip` varchar(100) NOT NULL,
+  `present_container` varchar(100) NOT NULL,
+  `present_os` varchar(100) NOT NULL,
+  PRIMARY KEY (`present_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hulu_like_request` (
+  `request_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `openid` varchar(100) NOT NULL,
+  `request_age_small` varchar(100) NOT NULL,
+  `request_age_big` varchar(100) NOT NULL,
+  `request_height_small` varchar(100) NOT NULL,
+  `request_height_big` varchar(100) NOT NULL,
+  `request_weight_small` varchar(100) NOT NULL,
+  `request_weight_big` varchar(100) NOT NULL,
+  `request_salary` int(10) NOT NULL,
+  `request_education` int(10) NOT NULL,
+  `request_area` int(10) NOT NULL,
+  PRIMARY KEY (`request_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hulu_like_sham` (
+  `sham_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `sham_nickname` varchar(100) NOT NULL,
+  `sham_content` text NOT NULL,
+  PRIMARY KEY (`sham_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hulu_like_share` (
+  `share_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `openid` varchar(100) NOT NULL,
+  `share_openid` varchar(100) NOT NULL,
+  `share_time` varchar(100) NOT NULL,
+  `share_ip` varchar(100) NOT NULL,
+  `share_container` varchar(100) NOT NULL,
+  `share_os` varchar(100) NOT NULL,
+  PRIMARY KEY (`share_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hulu_like_system` (
+  `system_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `openid` varchar(100) NOT NULL,
+  `system_pid` int(10) unsigned NOT NULL DEFAULT '1' COMMENT '1为失败/2为审核/3为成功',
+  `system_state` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '1为支出/2为提现/3为收入',
+  `system_type` int(10) NOT NULL,
+  `system_money` decimal(10,4) NOT NULL,
+  `system_time` varchar(100) NOT NULL,
+  `system_ip` varchar(100) NOT NULL,
+  `system_container` varchar(100) NOT NULL,
+  `system_os` varchar(100) NOT NULL,
+  PRIMARY KEY (`system_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hulu_like_talk` (
+  `talk_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `openid` varchar(100) NOT NULL,
+  `talk_pid` int(10) unsigned NOT NULL DEFAULT '2',
+  `talk_did` int(11) NOT NULL,
+  `talk_content` text NOT NULL,
+  `talk_weizhi` int(10) unsigned NOT NULL DEFAULT '1',
+  `talk_address` text NOT NULL,
+  `talk_jingwei` varchar(100) NOT NULL,
+  `talk_time` varchar(100) NOT NULL,
+  `talk_ip` varchar(100) NOT NULL,
+  `talk_container` varchar(100) NOT NULL,
+  `talk_os` varchar(100) NOT NULL,
+  PRIMARY KEY (`talk_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hulu_like_talk_pinglun` (
+  `pinglun_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `openid` varchar(100) NOT NULL,
+  `talk_id` int(10) NOT NULL,
+  `pinglun_content` text NOT NULL,
+  `pinglun_time` varchar(100) NOT NULL,
+  `pinglun_ip` varchar(100) NOT NULL,
+  `pinglun_container` varchar(100) NOT NULL,
+  `pinglun_os` varchar(100) NOT NULL,
+  PRIMARY KEY (`pinglun_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hulu_like_talk_zan` (
+  `zan_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `openid` varchar(100) NOT NULL,
+  `talk_id` int(10) NOT NULL,
+  `zan_time` varchar(100) NOT NULL,
+  `zan_ip` varchar(100) NOT NULL,
+  `zan_container` varchar(100) NOT NULL,
+  `zan_os` varchar(100) NOT NULL,
+  PRIMARY KEY (`zan_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hulu_like_taocan` (
+  `taocan_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `taocan_pid` int(10) unsigned NOT NULL DEFAULT '1',
+  `taocan_did` int(10) NOT NULL,
+  `taocan_liaotian_jinbi` int(10) NOT NULL,
+  `taocan_liaotian_person` int(10) NOT NULL,
+  `taocan_liaotian_time` int(10) NOT NULL,
+  PRIMARY KEY (`taocan_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hulu_like_tixian` (
+  `money_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `openid` varchar(100) NOT NULL,
+  `money_pid` int(10) unsigned NOT NULL DEFAULT '1' COMMENT '1为失败/2为审核/3为成功',
+  `money_state` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '1为支出/2为提现/3为收入/4为提成',
+  `money_money` decimal(10,4) NOT NULL,
+  `money_content` text NOT NULL,
+  `money_time` varchar(100) NOT NULL,
+  `money_ip` varchar(100) NOT NULL,
+  `money_container` varchar(100) NOT NULL,
+  `money_os` varchar(100) NOT NULL,
+  PRIMARY KEY (`money_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hulu_like_user` (
+  `uid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `openid` varchar(100) NOT NULL,
+  `upid` int(10) unsigned NOT NULL DEFAULT '2',
+  `user_jinbi` int(10) NOT NULL,
+  `user_share` int(10) unsigned NOT NULL DEFAULT '1',
+  `kefu_if` int(10) unsigned NOT NULL DEFAULT '1',
+  `sham` int(10) unsigned NOT NULL DEFAULT '1',
+  `vip_endtime` varchar(100) NOT NULL,
+  `realname` int(10) unsigned NOT NULL DEFAULT '1',
+  `sex` int(10) NOT NULL,
+  `nickname` varchar(100) NOT NULL,
+  `avatar` text NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `user_shangji` varchar(100) NOT NULL,
+  `user_liaodou_if` int(10) unsigned NOT NULL DEFAULT '1',
+  `user_liaodou_endtime` varchar(100) NOT NULL,
+  `login_time` varchar(100) NOT NULL,
+  `login_ip` varchar(100) NOT NULL,
+  `login_container` varchar(100) NOT NULL,
+  `login_os` varchar(100) NOT NULL,
+  `reg_time` varchar(100) NOT NULL,
+  `reg_ip` varchar(100) NOT NULL,
+  `set_close` int(1) NOT NULL,
+  PRIMARY KEY (`uid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hulu_like_viewer` (
+  `viewer_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `openid` varchar(100) NOT NULL COMMENT '来访者',
+  `viewer_openid` varchar(100) NOT NULL COMMENT '被访问者',
+  `viewer_time` varchar(100) NOT NULL,
+  `viewer_ip` varchar(100) NOT NULL,
+  `viewer_container` varchar(100) NOT NULL,
+  `viewer_os` varchar(100) NOT NULL,
+  PRIMARY KEY (`viewer_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hulu_like_wxlogin` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `weid` int(10) NOT NULL,
+  `type` varchar(8) NOT NULL COMMENT 'app',
+  `token` text NOT NULL,
+  `sign` text NOT NULL,
+  `openid` varchar(64) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `weid` (`weid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+]]></install>
+	<uninstall><![CDATA[DROP TABLE IF EXISTS `ims_hulu_like_active`;
+DROP TABLE IF EXISTS `ims_hulu_like_ads`;
+DROP TABLE IF EXISTS `ims_hulu_like_chongzhi`;
+DROP TABLE IF EXISTS `ims_hulu_like_contact`;
+DROP TABLE IF EXISTS `ims_hulu_like_gift`;
+DROP TABLE IF EXISTS `ims_hulu_like_join`;
+DROP TABLE IF EXISTS `ims_hulu_like_liaodou`;
+DROP TABLE IF EXISTS `ims_hulu_like_like`;
+DROP TABLE IF EXISTS `ims_hulu_like_make`;
+DROP TABLE IF EXISTS `ims_hulu_like_member`;
+DROP TABLE IF EXISTS `ims_hulu_like_menu`;
+DROP TABLE IF EXISTS `ims_hulu_like_money`;
+DROP TABLE IF EXISTS `ims_hulu_like_more`;
+DROP TABLE IF EXISTS `ims_hulu_like_muban`;
+DROP TABLE IF EXISTS `ims_hulu_like_news`;
+DROP TABLE IF EXISTS `ims_hulu_like_order`;
+DROP TABLE IF EXISTS `ims_hulu_like_picture`;
+DROP TABLE IF EXISTS `ims_hulu_like_present`;
+DROP TABLE IF EXISTS `ims_hulu_like_request`;
+DROP TABLE IF EXISTS `ims_hulu_like_sham`;
+DROP TABLE IF EXISTS `ims_hulu_like_share`;
+DROP TABLE IF EXISTS `ims_hulu_like_system`;
+DROP TABLE IF EXISTS `ims_hulu_like_talk`;
+DROP TABLE IF EXISTS `ims_hulu_like_talk_pinglun`;
+DROP TABLE IF EXISTS `ims_hulu_like_talk_zan`;
+DROP TABLE IF EXISTS `ims_hulu_like_taocan`;
+DROP TABLE IF EXISTS `ims_hulu_like_tixian`;
+DROP TABLE IF EXISTS `ims_hulu_like_user`;
+DROP TABLE IF EXISTS `ims_hulu_like_viewer`;
+DROP TABLE IF EXISTS `ims_hulu_like_wxlogin`;
+]]></uninstall>
+	<upgrade><![CDATA[upgrade.php]]></upgrade>
+</manifest>

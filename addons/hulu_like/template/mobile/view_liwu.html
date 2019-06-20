@@ -1,0 +1,32 @@
+{if !empty($present)}
+
+<!---->
+<div id="view_title"><div class="view_title_p">礼物<span>（{$present_num}份）</span></div></div>
+<!---->
+
+
+
+
+
+<div id="view_present">
+<div class="swiper-container">
+
+    <div class="swiper-wrapper">
+
+	{loop $present_page $key $present}
+        <div class="swiper-slide">
+		{loop $present $key $present}
+		<div class="view_present_list"><div class="view_present_list_pic"><img src="{$_W['attachurl']}{$present['gift_picture']}"/></div></div>
+		{/loop}
+		</div>
+		{/loop}
+      
+    </div>
+
+    <div class="swiper-pagination"></div>
+
+</div>
+</div>
+
+{/if}
+

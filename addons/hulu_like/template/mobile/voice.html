@@ -1,0 +1,57 @@
+{template 'header'}
+{php echo register_jssdk(true);}
+
+ <link rel="stylesheet" type="text/css" href="{MODULE_URL}template/mobile/style/talk_add.css">
+<script type="text/Javascript" src="{MODULE_URL}public/jquery.min.js"></script>
+
+<!--顶部菜单导航开始-->
+{php echo topmenu('发布动态',$this->createMobileUrl('fengmian'),'top_2.png');}
+<!--顶部菜单导航结束-->
+
+<div id="talk_add_content">
+<textarea name="talk_content" placeholder="这一刻，我想说..."></textarea>
+</div>
+
+
+
+{template 'foot'}
+
+<div id="a" style="width:100px;height:100px;background-color:red;"></div>
+<div id="b" style="width:100px;height:100px;background-color:blue;"></div>
+<div id="c" style="width:100px;height:100px;background-color:green;"></div>
+
+	<script>
+	wx.ready(function () {
+
+		//开始录音开始
+		$("#a").click(function(){
+wx.startRecord();
+});
+//开始录音结束
+
+		//停止录音开始
+		$("#b").click(function(){
+
+wx.stopRecord({
+    success: function (res) {
+        var localId = res.localId;
+    }
+});
+
+});
+//停止录音结束
+
+
+	//播放录音开始
+		$("#c").click(function(){
+
+wx.playVoice({
+    localId: '' // 需要播放的音频的本地ID，由stopRecord接口获得
+});
+
+});
+//播放录音结束
+
+		});
+
+		</script>

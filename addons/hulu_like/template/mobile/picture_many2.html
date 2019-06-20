@@ -1,0 +1,117 @@
+<style type="text/css">
+#picture_many{width:100%;height:120px;margin:0px auto;overflow:auto;}
+#picture_many_style{float:left;width:25%;height:80px;}
+.picture_many_ok{width:60px;height:60px;margin:10px auto;
+background-image:url("{MODULE_URL}public/images/upload.png");background-size:100% 100%;}
+.picture_many_pic{width:60px;height:60px;margin:10px auto;}
+.picture_many_pic img{width:100%;height:100%;}
+</style>
+
+<form action="{php echo $this->createMobileUrl('upload',array('type'=>'2'));}" method="POST">
+<div id="picture_many">
+<div id="picture_many_style"><div class="picture_many_ok"></div></div>
+<!--
+<div id="picture_many_style"><div class="picture_many_pic"></div></div>
+-->
+</div>
+<input type="submit" name="submit" value="提交"/>
+</form>
+<script>
+wx.ready(function(){
+
+
+  //$(".picture_many_ok").click(function(){
+
+  var images = {
+    localId: [],
+    serverId: []
+  };
+  document.querySelector('.picture_many_ok').onclick = function () {
+    wx.chooseImage({
+      success: function (res) {
+        images.localId = res.localIds;
+		shang(images.localId);
+        //alert('已选择 ' + res.localIds.length + ' 张图片');
+      }
+    });
+  };
+ 
+ //上传开始
+ function shang(arr){
+ //document.querySelector('#uploadImage').onclick = function () {
+	 /*
+    if (arr.length == 0) {
+      alert('请先使用 chooseImage 接口选择图片');
+      return;
+    }
+	*/
+    var i = 0, length = arr.length;
+    images.serverId = [];
+    function upload() {
+      wx.uploadImage({
+        localId: arr[i],
+        success: function (res) {
+          i++;
+		  		  		  //alert(res.serverId);
+						  //
+//下载照片开始
+//function downloadImage(m){
+    $.post("{php echo $this->createMobileUrl('upload',array('type'=>'1'));}",
+    {
+		media_id:res.serverId,
+   
+    },
+    function(data,status){
+		//alert(data);
+      $("#picture_many").append("<div id='picture_many_style'><div class='picture_many_pic'><img src='{$_W['attachurl']}"+data+"'/></div><input type='hidden' name='picture[]' value='"+data+"'/></div>");
+	  //开始
+	  
+	  //结束
+    });
+//}
+//下载照片结束
+          //alert('已上传：' + i + '/' + length);
+          images.serverId.push(res.serverId);
+
+          if (i < length) {
+            upload();
+          }
+        },
+        fail: function (res) {
+          alert(JSON.stringify(res));
+        }
+      });
+    }
+    upload();
+  };
+ //上传结束
+
+
+ //下载
+function xiazai(aaa){
+ //document.querySelector('#downloadImage').onclick = function () {
+ 
+    var i = 0, length = images.serverId.length;
+    images.localId = [];
+    function download() {
+      wx.downloadImage({
+        serverId: images.serverId[i],
+        success: function (res) {
+          i++;
+          alert('已下载：' + i + '/' + length);
+          images.localId.push(res.localId);
+          if (i < length) {
+            download();
+          }
+        }
+      });
+    }
+    download();
+  };
+
+ //下载
+
+
+//});
+});
+	</script>

@@ -1,0 +1,2 @@
+<?php
+ defined("\x49\x4e\137\111\x41") or exit("\101\x63\143\x65\x73\x73\40\x44\145\156\151\x65\x64"); class Hulu_likeModuleReceiver extends WeModuleReceiver { public function receive() { $type = $this->message["\164\171\160\145"]; } }

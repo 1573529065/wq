@@ -1,0 +1,24 @@
+{template 'common/header'}
+
+
+
+     <!--列表循环开始-->
+   
+<div class="panel panel-default">
+  <div class="panel-heading">说说评论</div>
+  <div class="panel-body">
+<table class="table table-hover">
+{template 'web/banner/talk_pinglun'}
+<tbody>
+{loop $pinglun $key $pinglun}
+{template 'web/page/talk_pinglun_list'}
+{/loop}
+</tbody>
+</table>
+</div>
+</div>
+  <!--列表循环结束-->
+
+{$pagination}
+
+{template 'common/footer'}

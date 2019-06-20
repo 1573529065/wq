@@ -1,0 +1,73 @@
+{template 'header'}
+{php echo register_jssdk(false);}
+
+ <link rel="stylesheet" type="text/css" href="{MODULE_URL}template/mobile/style/talk_add.css">
+<script type="text/Javascript" src="{MODULE_URL}public/jquery.min.js"></script>
+
+<!--顶部菜单导航开始-->
+{php echo topmenu($this->createMobileUrl('talk'),'发布动态','touming.png');}
+<!--顶部菜单导航结束-->
+
+<form action="" method="POST">
+
+<div id="talk_add_content">
+<textarea name="talk_content" placeholder="这一刻，我想说..."></textarea>
+</div>
+
+{template 'upload'}
+
+<!--地址开始-->
+<div id="talk_add_address">
+<div class="talk_add_address_pic"><div class="talk_add_address_pic_img"></div></div>
+<div class="talk_add_address_content"></div>
+</div>
+<!--地址结束-->
+
+<div id="talk_add_ok"><input type="submit" name="submit" value="发 布"/></div>
+
+<input type="hidden" name="talk_address_if" value="2"/>
+<input type="hidden" name="talk_address" value=""/>
+<input type="hidden" name="talk_jingwei" value=""/>
+<input type="hidden" name="token" value="{$_W['token']}"/>
+
+</form>
+{template 'foot'}
+
+
+
+	<script>
+	wx.ready(function () {
+//获取地理位置开始
+
+wx.getLocation({
+    type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+    success: function (res) {
+        var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+        var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+        var speed = res.speed; // 速度，以米/每秒计
+        var accuracy = res.accuracy; // 位置精度
+		//开始
+$("input[name='talk_jingwei']").val(latitude+','+longitude);
+		$.post("{php echo $this->createMobileUrl('get_address',array('type'=>'1'));}",
+    {
+		lat:latitude,
+		lng:longitude,
+   
+    },
+    function(data,status){
+    $(".talk_add_address_pic").show();
+	 	 $(".talk_add_address_content").html(data);
+	 $("input[name='talk_address']").val(data);
+
+	 
+    });
+
+		//结束
+    }
+});
+
+//获取地理位置结束
+
+		});
+
+		</script>

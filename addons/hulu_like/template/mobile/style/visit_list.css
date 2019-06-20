@@ -1,0 +1,26 @@
+/*visit_list*/
+#visit_list{width:100%;height:auto;margin:0px auto;}
+.visit_list_style{width:100%;height:80px;margin:0px auto;border-bottom:1px solid #EEE;}
+
+
+.visit_list_one{float:left;width:25%;height:80px;}
+.visit_list_one_pic{width:60px;height:60px;margin:10px auto;border-radius:50%;}
+.visit_list_one_pic img{width:100%;height:100%;border-radius:50%;}
+
+.visit_list_two{float:left;width:50%;height:80px;}
+.visit_list_two_a{width:100%;height:20px;margin:10px auto 0px;
+text-align:left;line-height:20px;font-size:14px;color:#000;overflow:hidden;}
+
+.visit_list_two_b{width:100%;height:20px;margin:0px auto;
+text-align:left;line-height:20px;font-size:10px;color:#666;overflow:hidden;}
+
+.visit_list_two_c{width:100%;height:20px;margin:0px auto 10px;
+text-align:left;line-height:20px;font-size:10px;color:#666;overflow:hidden;}
+
+.visit_list_three{float:left;width:25%;height:80px;}
+.visit_list_three_a{width:100%;height:20px;margin:10px auto 0px;
+text-align:left;line-height:20px;font-size:12px;color:#666;overflow:hidden;}
+
+.visit_list_three_b{width:100%;height:20px;margin:0px auto 30px;
+text-align:left;line-height:20px;font-size:12px;color:#666;overflow:hidden;}
+

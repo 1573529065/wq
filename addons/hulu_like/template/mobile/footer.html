@@ -1,0 +1,57 @@
+{template 'kefu'}
+{if $_W['fans']['follow']!="1"}{template 'guanzhu'}{/if}
+<script type="text/javascript">
+    $(document).ready(function () {
+        {if $_GPC['do'] == "fengmian"}var h = "0";
+        {/if}
+                {if $_GPC['do'] == "chat"}var h = "1";
+        {/if}
+                {if $_GPC['do'] == "active"}var h = "2";
+        {/if}
+                {if $_GPC['do'] == "talk"}var h = "3";
+        {/if}
+                {if $_GPC['do'] == "my"}var h = "4";
+        {/if}
+
+        $(".bottom_menu_pic:eq(" + h + ")").find("img").attr("src", "{MODULE_URL}public/images/bottom_menu_{$_GPC['do']}.png");
+        $(".bottom_menu_p:eq(" + h + ")").addClass("bottom_menu_p_new");
+    });
+</script>
+
+<div id="bottom_menu">
+    {loop $this->getFootMenu() $key $bottom}
+    <a href="{php echo $bottom['link'];}">
+        <div id="bottom_menu_style">
+            <div class="bottom_menu_pic">
+                <img src="{php echo tomedia($bottom['pic']);}"/>
+                {if $key=="1"} <div class="bottom_menu_pic_p">23</div>{/if}
+            </div>
+            <div class="bottom_menu_p">{$bottom['name']}</div>
+        </div>
+    </a>
+    {/loop}
+</div>
+</body>
+</html>
+<script>
+    wx.ready(function () {
+        sharedata = {
+            title: "{$make['make_share_title']}",
+            desc: "{$make['make_share_content']}",
+            link: "",
+            imgUrl: "{$_W['attachurl']}{$make['make_share_picture']}",
+            //success: function(){
+            //alert('分享成功');
+            //},
+            cancel: function () {
+                alert('分享使人更加快乐！');
+            }
+        };
+
+        wx.onMenuShareAppMessage(sharedata);
+        wx.onMenuShareTimeline(sharedata);
+        wx.onMenuShareQQ(sharedata);
+        wx.onMenuShareWeibo(sharedata);
+        wx.onMenuShareQZone(sharedata);
+    });
+</script>

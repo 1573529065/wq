@@ -1,0 +1,96 @@
+<tr>
+
+<td>{$user['uid']}</td>
+
+<td>{$user['nickname']}</td>
+
+<td><img style="width:60px;height:60px;border-radius:50%;" src="{php echo getavatar($_W['uniacid'], $user['openid']);}"/></td>
+
+<td>
+{if $user['upid']=='4'}<span class="label label-danger">VIP</span><br/>{php echo date('Y-m-d H:i:s',$user['vip_endtime']);}
+{elseif $user['upid']=='3'}<span class="label label-info">普通会员</span>
+{elseif $user['upid']=='2'}<span class="label label-warning">待审核</span>
+{elseif $user['upid']=='1'}<span class="label label-default">黑名单</span>
+{else}{/if}
+</td>
+
+<td>
+{if $user['sex']=='0'}<span class="label label-default" onclick="chg_sex(1,{$user['uid']})" id="sex_{$user['uid']}">未知</span>
+{elseif $user['sex']=='1'}<span class="label label-primary" onclick="chg_sex(2,{$user['uid']})" id="sex_{$user['uid']}">男</span>
+{elseif $user['sex']=='2'}<span class="label label-danger" onclick="chg_sex(1,{$user['uid']})" id="sex_{$user['uid']}">女</span>
+{else}{/if}
+</td>
+
+
+
+<td>
+{php echo $user['login_time'] ? date('Y-m-d H:i:s',$user['login_time']) : '元';}<br/>
+{$user['login_ip']}<br/>
+{$user['login_container']}<br/>
+{$user['login_os']}
+</td>
+
+<td>
+{php echo date('Y-m-d H:i:s',$user['reg_time']);}<br/>
+{$user['reg_ip']}
+</td>
+
+
+<td>
+
+<a class="btn btn-default" href="{php echo $this->createWebUrl('user_view',array('openid'=>$user['openid']));}" role="button" title="详情">
+<i class="fa fa-search fa-fw"></i>
+</a>
+
+{if $user['upid']!='4'}
+<a class="btn btn-default" href="{php echo $this->createWebUrl('user_update',array('openid'=>$user['openid'],'upid'=>'4'));}" role="button" title="置为VIP">
+VIP
+</a>
+{else}
+<a class="btn btn-default" href="{php echo $this->createWebUrl('user_update',array('openid'=>$user['openid'],'upid'=>'3'));}" role="button" title="置为普通">
+普
+</a>
+{/if}
+
+{if ($user['upid']=='2')||($user['upid']=='1')}
+<a class="btn btn-default" href="{php echo $this->createWebUrl('user_update',array('openid'=>$user['openid'],'upid'=>'3'));}" role="button" title="置为普通">
+<i class="fa fa-check fa-fw"></i>
+</a>
+{else}{/if}
+
+{if ($user['upid']=='2')||($user['upid']=='3')}
+<a class="btn btn-default" href="{php echo $this->createWebUrl('user_update',array('openid'=>$user['openid'],'upid'=>'1'));}" role="button" title="置为黑名单">
+<i class="fa fa-times fa-fw"></i>
+</a>
+{else}{/if}
+
+
+{if ($user['kefu_if']=='1')}
+<a class="btn btn-success" href="{php echo $this->createWebUrl('user_xiugai',array('openid'=>$user['openid'],'type'=>'kefu','value'=>'2'));}" role="button" title="置为客服">
+客
+</a>
+{elseif ($user['kefu_if']=='2')}
+<a class="btn btn-danger" href="{php echo $this->createWebUrl('user_xiugai',array('openid'=>$user['openid'],'type'=>'kefu','value'=>'1'));}" role="button" title="置为客服">
+客
+</a>
+{else}
+{/if}
+
+
+{if ($user['user_share']=='1')}
+<a class="btn btn-success" href="{php echo $this->createWebUrl('user_xiugai',array('openid'=>$user['openid'],'type'=>'share','value'=>'2'));}" role="button" title="置为推广员">
+推
+</a>
+{elseif ($user['user_share']=='2')}
+<a class="btn btn-danger" href="{php echo $this->createWebUrl('user_xiugai',array('openid'=>$user['openid'],'type'=>'share','value'=>'1'));}" role="button" title="取消推广员">
+普
+</a>
+{else}
+{/if}
+
+
+<a onclick="delcfm()"  title="删除会员" class="btn btn-default" href="{php echo $this->createWebUrl('user_del',array('openid'=>$user['openid']));}" role="button"><i class="fa fa-trash-o fa-fw"></i></a>
+
+</td>
+
+</tr>

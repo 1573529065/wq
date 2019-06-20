@@ -1,0 +1,73 @@
+/*talk_list*/
+
+#talk_list{float:left;width:100%;height:auto;margin:0px auto 100px;}
+
+#talk_list_style{float:left;width:100%;height:auto;margin:0px auto;
+box-shadow:0px 0.5px 0px 0px #DDD;-moz-box-shadow:box-shadow:0px 0.5px 0px 0px #DDD;}
+.talk_list_left{width:100%;height:50px;margin:10px auto;}
+.talk_list_left_pic{float:left;width:20%;height:50px;}
+.talk_list_left_pic_img{width:50px;height:50px;margin:0px auto;}
+.talk_list_left_pic_img img{width:100%;height:100%;}
+
+.talk_list_left_p1{float:left;width:75%;height:30px;
+text-align:left;line-height:30px;font-size:16px;color:#0098F0;overflow:hidden;}
+
+.talk_list_left_p2{float:left;width:75%;height:20px;
+text-align:left;line-height:20px;font-size:12px;color:#999;overflow:hidden;}
+
+.talk_list_right{width:78%;height:auto;margin:0px 2% 0px 20%;}
+
+.talk_list_right_1{width:100%;height:auto;margin:0px auto;
+text-align:left;line-height:30px;font-size:14px;color:#000;overflow:hidden;}
+
+.talk_list_right_2{float:left;width:100%;height:auto;margin:0px auto;}
+.talk_list_right_2_pic{float:left;width:80px;height:80px;margin:10px 10px 0px 0px;}
+.talk_list_right_2_pic img{width:100%;height:100%;}
+
+
+.talk_list_right_weizhi{float:left;width:100%;height:30px;margin:10px auto;}
+.talk_list_right_weizhi_left{float:left;width:20px;height:30px;}
+.talk_list_right_weizhi_pic{width:20px;height:20px;margin:5px auto;}
+.talk_list_right_weizhi_pic img{width:100%;height:100%;}
+.talk_list_right_weizhi_right{float:left;width:auto;height:30px;
+text-align:left;line-height:30px;font-size:12px;color:#666;overflow:hidden;}
+
+
+.talk_list_right_3{float:left;width:100%;height:30px;margin:0px auto 10px;}
+
+.talk_list_right_3_a{float:left;width:40%;height:30px;
+text-align:left;line-height:30px;font-size:12px;color:#999;overflow:hidden;}
+
+.talk_list_right_3_b{float:left;width:20%;height:30px;}
+.talk_list_right_3_b_style{width:80%;height:30px;margin:0px auto;}
+.talk_list_right_3_b_pic{float:left;width:50%;height:30px;}
+.talk_list_right_3_b_pic_img{width:20px;height:20px;margin:5px auto}
+.talk_list_right_3_b_pic_img img{width:20px;height:20px;}
+.talk_list_right_3_b_p{float:left;width:25%;height:30px;
+text-align:left;line-height:30px;font-size:12px;color:#999;overflow:hidden;}
+
+.talk_list_right_3_b_n{float:left;width:25%;height:30px;
+text-align:left;line-height:30px;font-size:12px;color:#999;overflow:hidden;}
+
+.talk_list_pinglun{float:left;width:100%;height:auto;margin:0px auto;}
+.talk_list_pinglun_style{float:left;width:100%;height:auto;margin:0px auto;position:relative;}
+.talk_list_pinglun_avatar{width:16px;height:16px;position:absolute;top:2px;left:2px;}
+.talk_list_pinglun_avatar img{width:100%;height:100%;border-radius:50%;}
+.talk_list_pinglun_p{float:left;width:100%;height:auto;margin:0px auto;
+text-indent:20px;line-height:20px;font-size:10px;color:#666;overflow:hidden;}
+
+
+/*talk_list_del*/
+.talk_list_del{float:left;width:100%;height:30px;margin:0px auto;}
+.talk_list_del_pic{width:20px;height:20px;margin:5px auto 5px 5px;}
+.talk_list_del_pic img{width:100%;height:100%;}
+
+@media screen and (min-width:750px){
+html,body{font-size:20px;}
+
+
+#talk_top{width:750px;float:none;}
+#talk_list{width:750px;float:none;}
+
+
+}

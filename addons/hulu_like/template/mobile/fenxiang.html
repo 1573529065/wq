@@ -1,0 +1,62 @@
+<?php
+$share_link = '';
+if($_GPC['do']=="xinxi"){
+   // $share_title=$view['xinxi_title'];
+    $share_content = ltrim(str_replace(array("\r\n", "\r", "\n"), '', $view['xinxi_content']));
+    $share_title = $view['xinxi_title'] . mb_substr($share_content,0,30,'utf-8');
+    //$share_picture=$share_picture;
+}elseif($_GPC['do']=="mall"){
+    $share_title=$mall['shop_name'];
+    $share_content=$mall['shop_special'];
+    $share_picture=$mall['shop_pic_small'];
+}elseif($_GPC['do']=="product"){
+    $share_title=$product['product_name'];
+    $share_content=$product['product_content'];
+    $share_picture=$share_picture;
+}elseif($_GPC['do']=="quan_view"){
+}else{
+    if ($_GPC['do']=="tuiguang") {
+        $share_link = $share_url;
+    }
+    $share_title=$make['make_share_title'];
+    $share_content=$make['make_share_content'];
+    $share_picture=$make['make_share_pic'];
+}
+$share_content = mb_substr(ltrim($share_content),0,30,'utf-8');
+?>
+<script>
+    wx.ready(function () {
+        sharedata = {
+            title: "{$share_title}",
+            desc: "{$share_content}",
+            link: "{$share_link}",
+            imgUrl: "{if !empty($share_picture)}{$_W['attachurl']}{$share_picture}{else}{php echo $_W['attachurl'].$make['make_share_pic'];}{/if}",
+            success: function () {
+                zhuanfa();
+                //alert('success');
+            },
+            cancel: function () {
+                //alert('cancel');
+            }
+        };
+        wx.onMenuShareAppMessage(sharedata);
+        wx.onMenuShareTimeline(sharedata);
+        wx.onMenuShareQQ(sharedata);
+        wx.onMenuShareWeibo(sharedata);
+        wx.onMenuShareQZone(sharedata);
+    });
+
+    function zhuanfa() {
+        //
+        $.post("{php echo $this->createMobileUrl('zhuanfa');}",
+                {
+                    zhuan_type: "{$_GPC['do']}",
+                    zhuan_vid: "{$_GPC['vid']}",
+                },
+                function (data, status) {
+                    //alert(data);
+
+                });
+        //
+    }
+</script>

@@ -1,0 +1,15 @@
+#liaodou_one{width:80%;height:40px;margin:5px auto;
+text-align:left;line-height:40px;font-size:16px;color:#000;overflow:hidden;}
+
+#liaodou_two{width:80%;height:40px;margin:0px auto;
+text-align:left;line-height:40px;font-size:12px;color:#FA4D47;overflow:hidden;}
+
+#liaodou_input_one{width:80%;height:50px;margin:50px auto;}
+#liaodou_input_one select{width:98%;height:40px;margin:5px auto;border:none;border:1px solid #999;
+text-align:left;line-height:40px;font-size:14px;color:#000;overflow:hidden;}
+
+
+#liaodou_ok{width:100%;height:50px;background-color:#FA4D47;
+position:fixed;bottom:0px;left:0px;z-index:100;}
+#liaodou_ok input{width:98%;height:50px;margin:0px 1%;background-color:#FA4D47;border:none;
+text-align:center;line-height:50px;font-size:16px;color:#FFF;overflow:hidden;}

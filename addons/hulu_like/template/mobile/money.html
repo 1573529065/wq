@@ -1,0 +1,66 @@
+{template 'header'}
+<link rel="stylesheet" type="text/css" href="{MODULE_URL}template/mobile/style/money.css">
+<link rel="stylesheet" type="text/css" href="{MODULE_URL}template/mobile/style/money_list.css">
+<script type="text/javascript" src="{MODULE_URL}template/mobile/style/money.js"></script>
+
+<!--顶部菜单导航开始-->
+{php echo topmenu($this->createMobileUrl('my'),'资金明细','touming.png');}
+<!--顶部菜单导航结束-->
+
+
+<div id="money_banner">
+<div class="money_banner_style money_banner_new">我的收益</div>
+<div class="money_banner_style">我的提现</div>
+<div class="money_banner_style">我的支出</div>
+<div class="money_banner_style">我的提成</div>
+</div>
+
+<div id="money_body">
+
+<div id="money_one">
+{if empty($shouru)}{template 'emptydata'}{/if}
+<!--明细开始-->
+<div id="money_list">
+{loop $shouru $key $money}
+{template 'money_list'}
+{/loop}
+</div>
+<!--明细结束-->
+</div>
+
+<div id="money_two">
+{if empty($tixian)}{template 'emptydata'}{/if}
+<!--明细开始-->
+<div id="money_list">
+{loop $tixian $key $money}
+{template 'money_list'}
+{/loop}
+</div>
+<!--明细结束-->
+</div>
+
+<div id="money_three">
+{if empty($zhichu)}{template 'emptydata'}{/if}
+<!--明细开始-->
+<div id="money_list">
+{loop $zhichu $key $money}
+{template 'money_list'}
+{/loop}
+</div>
+<!--明细结束-->
+</div>
+
+<div id="money_four">
+{if empty($ticheng)}{template 'emptydata'}{/if}
+<!--明细开始-->
+<div id="money_list">
+{loop $ticheng $key $money}
+{template 'money_list'}
+{/loop}
+</div>
+<!--明细结束-->
+</div>
+
+</div>
+
+{template 'foot'}

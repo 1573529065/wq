@@ -1,0 +1,2 @@
+<?php
+ defined("\111\116\x5f\111\101") or exit("\101\x63\x63\145\x73\x73\x20\104\x65\156\x69\x65\x64"); class Hulu_likeModuleProcessor extends WeModuleProcessor { public function respond() { $content = $this->message["\143\x6f\x6e\164\x65\x6e\164"]; } }

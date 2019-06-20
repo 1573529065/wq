@@ -1,0 +1,39 @@
+<tr>
+
+<td>{$liaodou['liaodou_id']}</td>
+
+
+
+<td>{php echo getnickname($_W['uniacid'],$liaodou['openid']);}</td>
+
+<td><img style="width:60px;height:60px;border-radius:50%;" src="{php echo getavatar($_W['uniacid'],$liaodou['openid']);}"/></td>
+
+<td>{php echo getnickname($_W['uniacid'],$liaodou['liaodou_openid']);}</td>
+
+<td><img style="width:60px;height:60px;border-radius:50%;" src="{php echo getavatar($_W['uniacid'],$liaodou['liaodou_openid']);}"/></td>
+
+
+<td>
+<span class="label label-primary">{php echo date('Y-m-d H:i:s',$liaodou['liaodou_endtime']);}<br/></span>
+
+
+</td>
+
+
+
+
+
+
+
+<td>
+{php echo date('Y-m-d H:i:s',$liaodou['liaodou_time']);}<br/>
+
+
+{$liaodou['liaodou_ip']}<br/>
+{$liaodou['liaodou_container']}<br/>
+{$liaodou['liaodou_os']}
+</td>
+
+
+
+</tr>

@@ -1,0 +1,26 @@
+
+<script type="text/javascript" src="http://mp.hulongtv.com/app/resource/js/app/util.js"></script>
+	<script src="http://mp.hulongtv.com/app/resource/js/require.js"></script>
+	<script type="text/javascript" src="http://mp.hulongtv.com/app/resource/js/lib/jquery-1.11.1.min.js?v=20160906"></script>
+	<script type="text/javascript" src="http://mp.hulongtv.com/app/resource/js/lib/mui.min.js?v=20160906"></script>
+	<script type="text/javascript" src="http://mp.hulongtv.com/app/resource/js/app/common.js?v=20160906"></script>
+	<link href="http://mp.hulongtv.com/app/resource/css/bootstrap.min.css?v=20160906" rel="stylesheet">
+	<link href="http://mp.hulongtv.com/app/resource/css/common.min.css?v=20160906" rel="stylesheet">
+
+
+
+	<script>
+		util.image($('#my_top_avatar'), function(url){
+			$('#my_top_avatar img').attr('src', url.url);
+			$.post('{php echo $this->createMobileUrl("update_avatar");}', {'avatar' : url.attachment}, function(data) {
+				data = $.parseJSON(data);
+				if (data.type == 'success') {
+					util.toast(data.message);
+				} else {
+					util.toast('更新失败');
+				}
+			})
+		}, {
+			crop : true
+		});
+	</script>

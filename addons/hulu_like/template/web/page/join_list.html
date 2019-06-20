@@ -1,0 +1,43 @@
+<tr>
+
+<td>{$join['join_id']}</td>
+
+
+<td>
+{if $join['join_pid']=='1'}<span class="label label-default">已失败</span>
+{elseif $join['join_pid']=='2'}<span class="label label-danger">未支付</span>
+{elseif $join['join_pid']=='3'}<span class="label label-success">已成功</span>
+{else}{/if}
+</td>
+
+<td>{php echo getnickname($_W['uniacid'],$join['openid']);}</td>
+
+<td><img style="width:60px;height:60px;border-radius:50%;" src="{php echo getavatar($_W['uniacid'],$join['openid']);}"/></td>
+
+<td>
+{if $join['join_sex']=='1'}<span class="label label-primary">男</span>
+{elseif $join['join_sex']=='2'}<span class="label label-danger">女</span>
+{else}{/if}
+</td>
+
+
+
+<td>{$join['active_id']}</td>
+
+<td>{$join['join_name']}<br/>{$join['join_wechat']}<br/>{$join['join_tel']}</td>
+
+
+
+
+
+<td>
+{php echo date('Y-m-d H:i:s',$join['join_time']);}<br/>
+{$join['join_ip']}<br/>
+{$join['join_container']}<br/>
+{$join['join_os']}
+</td>
+
+<td>
+</td>
+
+</tr>

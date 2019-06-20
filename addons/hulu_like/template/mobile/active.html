@@ -1,0 +1,62 @@
+{template 'header'}
+ <link rel="stylesheet" type="text/css" href="{MODULE_URL}template/mobile/style/active.css">
+
+
+<!--轮播广告开始-->
+{template 'banner'}
+<!--轮播广告结束-->
+
+<div id="active_fabu">
+<a href="{php echo $this->createMobileUrl('active_add');}">
+<div class="active_fabu_pic"></div>
+</a>
+</div>
+
+<div id="active_top">
+<a href="{php echo $this->createMobileUrl('active',array('type'=>'3'));}">
+<div class="active_top_style">
+<div class="active_top_p">报名中</div>
+</div>
+</a>
+<a href="{php echo $this->createMobileUrl('active',array('type'=>'4'));}">
+<div class="active_top_style">
+<div class="active_top_p">进行中</div>
+</div>
+</a>
+<a href="{php echo $this->createMobileUrl('active',array('type'=>'5'));}">
+<div class="active_top_style">
+<div class="active_top_p">已结束</div>
+</div>
+</a>
+
+<a href="{php echo $this->createMobileUrl('active',array('type'=>'6'));}">
+<div class="active_top_style">
+<div class="active_top_p">我发起的</div>
+</div>
+</a>
+
+</div>
+
+
+
+
+{if empty($active)}{template 'emptydata'}{/if}
+
+<div id="active_list">
+{loop $active $key $active}
+ {template 'active_list'}
+{/loop}
+</div>
+
+
+
+ <script type="text/javascript">
+$(document).ready(function(){
+	var h="{php echo $type-3;}";
+	
+$(".active_top_p:eq("+h+")").addClass("active_top_p_new");
+
+});
+</script>
+
+ {template 'footer'}

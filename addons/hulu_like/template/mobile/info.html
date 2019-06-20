@@ -1,0 +1,343 @@
+{template 'header'}
+<script type="text/javascript" src="{$_W['siteroot']}app/resource/js/app/util.js"></script>
+<script src="{$_W['siteroot']}app/resource/js/require.js"></script>
+<script type="text/javascript" src="{$_W['siteroot']}app/resource/js/lib/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="{$_W['siteroot']}app/resource/js/lib/mui.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="{MODULE_URL}template/mobile/style/request.css">
+<script type="text/javascript" src="{MODULE_URL}template/mobile/style/request.js"></script>
+
+<!--顶部菜单导航开始-->
+
+{php echo topmenu($this->createMobileUrl('my'),'基本资料','touming.png');}
+
+<!--顶部菜单导航结束-->
+
+<div id="input_one">
+
+<form action="" method="POST">
+<div id="input_one_style">
+<div class="input_one_a">头像<span>*</span></div>
+<div class="input_one_b">
+
+ <div class="picture_upload_add">
+ {if empty($user['user_img'])}
+ <img src="{php echo getavatar($_W['uniacid'], $user['openid']);}" width="40px" height="40px" style="margin-left:90%;margin-top:5px"/>
+{else}
+<img src="{php echo $_W['attachurl'].$user['user_img'];}" width="40px" height="40px" style="margin-left:90%;margin-top:5px"/>
+{/if}
+</div>
+</div>
+</div>
+<div id="input_one_style">
+<div class="input_one_a">昵称<span>*</span></div>
+<div class="input_one_b"><input type="text" name="nickname" placeholder="请输入会员昵称" required="required" value="{$user['nickname']}"/></div>
+</div>
+
+
+<div id="input_one_style">
+<div class="input_one_a">性别<span>*</span></div>
+<div class="input_one_b">
+<select name="sex">
+<option value="1" {if $user['sex']=='1'}selected="selected"{else}{/if}>男</option>
+<option value="2" {if $user['sex']=='2'}selected="selected"{else}{/if}>女</option>
+</select>
+</div>
+</div>
+
+
+<div id="input_one_style">
+<div class="input_one_a">出生日期<span>*</span></div>
+<div class="input_one_b">{php echo tpl_app_form_field_calendar('birth',array('year'=>date('Y',$member['member_birthday']),'month'=>date('m',$member['member_birthday']),'day'=>date('d',$member['member_birthday'])));}</div>
+</div>
+
+<div id="input_one_style">
+<div class="input_one_a">身高<span>*</span></div>
+<div class="input_one_b">
+<input id="member_height" type="text" name="member_height" readonly="" value="{$member['member_height']}" placeholder="请选择身高（CM）" required="required"/>
+</div>
+</div>
+
+<div id="input_one_style">
+<div class="input_one_a">体重<span>*</span></div>
+<div class="input_one_b">
+<input id="member_weight" type="text" name="member_weight" readonly="" value="{$member['member_weight']}" placeholder="请选择体重（KG）" required="required"/>
+</div>
+</div>
+
+<div id="input_one_style">
+<div class="input_one_a">交友目的</div>
+<div class="input_one_b">
+<select name="member_purpose">
+{loop purposedata() $key $purpose}
+<option value="{$purpose['purpose_id']}" {if $purpose['purpose_id']==$member['member_purpose']}selected="selected"{else}{/if}>{$purpose['purpose_name']}</option>
+{/loop}
+</select>
+</div>
+</div>
+
+<div id="input_one_style">
+<div class="input_one_a">感情状态</div>
+<div class="input_one_b">
+<select name="member_feeling">
+{loop feelingdata() $key $feeling}
+<option value="{$feeling['feeling_id']}" {if $feeling['feeling_id']==$member['member_feeling']}selected="selected"{else}{/if}>{$feeling['feeling_name']}</option>
+{/loop}
+</select>
+</div>
+</div>
+
+<div id="input_one_style">
+<div class="input_one_a">婚姻状态</div>
+<div class="input_one_b">
+<select name="member_marry">
+{loop marrydata() $key $marry}
+<option value="{$marry['marry_id']}" {if $marry['marry_id']==$member['member_marry']}selected="selected"{else}{/if}>{$marry['marry_name']}</option>
+{/loop}
+</select>
+</div>
+</div>
+
+<div id="input_one_style">
+<div class="input_one_a">微信号</div>
+<div class="input_one_b"><input type="text" name="member_wechat" placeholder="请输入微信号"  value="<?php echo $member['member_wechat']?$member['member_wechat']:'1' ?>"/></div>
+</div>
+
+<div id="input_one_style">
+<div class="input_one_a">手机号</div>
+<div class="input_one_b"><input type="number" name="member_tel" placeholder="请输入手机号"  value="<?php echo $member['member_tel']?$member['member_tel']:'1' ?>"/></div>
+</div>
+
+<div id="input_one_style">
+    <div class="input_one_a">学历</div>
+    <div class="input_one_b">
+    <select name="member_edu">
+    {loop educationdata() $key $edu}<?php if ($edu['education_id']==1) {continue;}?>
+    <option value="{$edu['education_id']}" {if $edu['education_id']==$member['member_edu']}selected="selected"{else}{/if}>{$edu['education_name']}</option>
+    {/loop}
+    </select>
+    </div>
+</div>  
+<div id="input_one_style">
+    <div class="input_one_a">月均收入</div>
+    <div class="input_one_b">
+    <select name="member_salary">
+    {loop salarydata() $key $salary}<?php if ($salary['salary_id']==1) {continue;}?>
+    <option value="{$salary['salary_id']}" {if $salary['salary_id']==$member['member_salary']}selected="selected"{else}{/if}>{$salary['salary_name']}</option>
+    {/loop}
+    </select>
+    </div>
+</div> 
+<div id="input_one_style">
+    <div class="input_one_a">房产情况</div>
+    <div class="input_one_b">
+    <select name="member_house">
+    {loop housedata() $key $house}
+    <option value="{$house['house_id']}" {if $house['house_id']==$member['member_house']}selected="selected"{else}{/if}>{$house['house_name']}</option>
+    {/loop}
+    </select>
+    </div>
+</div>     
+<div id="input_one_style">
+    <div class="input_one_a">职业</div>
+    <div class="input_one_b">
+    <select name="member_career">
+    {loop careerdata() $key $house}
+    <option value="{$house['career_id']}" {if $house['career_id']==$member['member_career']}selected="selected"{else}{/if}>{$house['career_name']}</option>
+    {/loop}
+    </select>
+    </div>
+</div>    
+<div id="input_one_style">
+    <div class="input_one_a">民族</div>
+    <div class="input_one_b"><input type="text" name="member_nation" placeholder="请输入民族" value="{php echo $member['member_nation'] ? $member['member_nation'] : '汉族';}"/></div>
+</div>
+      
+       
+<div id="input_one_style">
+<div class="input_one_a">所在城市<span>*</span></div>
+<div class="input_one_b">{php echo tpl_app_form_field_district('member_address',array('province'=>$member['member_province'],'city'=>$member['member_city'],'district'=>$member['member_district']));}</div>
+</div>
+    
+<div id="input_one_textarea_style">
+<div class="input_one_textarea_a">交友宣言</div>
+<div class="input_one_textarea_b"><textarea type="text" name="member_content" placeholder="请输入交友宣言" required="required">{$member['member_content']}</textarea></div>
+</div>
+<div id="input_one_style">
+    <div class="input_one_a">关闭我的信息<span></span></div>
+    <div class="input_one_b">
+    <select name="set_close">
+    <option value="1" {if $user['set_close']=='1'}selected="selected"{else}{/if}>是</option>
+    <option value="0" {if $user['set_close']=='0'}selected="selected"{else}{/if}>否</option>
+    </select>
+    </div>
+</div>
+
+<div id="top_menu" style="background-color: #f3adaa;">
+    <a href="javascript:;">
+    <div class="top_menu_a"><div class="top_menu_a_pic"></div></div>
+    </a>
+    <div class="top_menu_b">择偶要求</div>
+    <div class="top_menu_c"></div>
+</div>    
+<div id="div_request">
+    <div id="input_two_style">
+    <div class="input_two_a">年龄范围</div>
+    <div class="input_two_b">
+    <div class="input_two_b_1"><input type="number" id="request_age_small" name="request_age_small" placeholder="请输入最小年龄" required="required" value="{$request['request_age_small']}"/></div>
+    <div class="input_two_b_2"><input type="number" id="request_age_big" name="request_age_big" placeholder="请输入最大年龄" required="required" value="{$request['request_age_big']}"/></div>
+    </div>
+    </div>
+
+    <div id="input_two_style">
+    <div class="input_two_a">身高范围</div>
+    <div class="input_two_b">
+    <div class="input_two_b_1"><input type="number" id="request_height_small" name="request_height_small" placeholder="请输入最矮身高" required="required" value="{$request['request_height_small']}"/></div>
+    <div class="input_two_b_2"><input type="number" id="request_height_big" name="request_height_big" placeholder="请输入最高身高" required="required" value="{$request['request_height_big']}"/></div>
+    </div>
+    </div>
+
+    <div id="input_two_style">
+    <div class="input_two_a">体重范围</div>
+    <div class="input_two_b">
+    <div class="input_two_b_1"><input type="number" id="request_weight_small" name="request_weight_small" placeholder="请输入最轻体重" required="required" value="{$request['request_weight_small']}"/></div>
+    <div class="input_two_b_2"><input type="number" id="request_weight_big" name="request_weight_big" placeholder="请输入最重体重" required="required" value="{$request['request_weight_big']}"/></div>
+    </div>
+    </div>
+
+    <div id="input_two_style">
+        <div class="input_two_a">薪资范围</div>
+        <div class="input_two_c">
+        <select name="request_salary">
+        {loop salarydata() $key $salary}
+        <option value="{$salary['salary_id']}" {if $salary['salary_id']==$request['request_salary']}selected="selected"{else}{/if}>{$salary['salary_name']}</option>
+        {/loop}
+        </select>
+        </div>
+    </div>
+
+    <div id="input_two_style">
+        <div class="input_two_a">学历要求</div>
+        <div class="input_two_c">
+        <select name="request_education">
+        {loop educationdata() $key $education}
+        <option value="{$education['education_id']}" {if $education['education_id']==$request['request_education']}selected="selected"{else}{/if}>{$education['education_name']}</option>
+        {/loop}
+        </select>
+        </div>
+    </div>
+
+    <div id="input_two_style">
+        <div class="input_two_a">所在地域</div>
+        <div class="input_two_c">
+        <select name="request_area">
+        {loop areadata() $key $area}
+        <option value="{$area['area_id']}" {if $area['area_id']==$request['request_area']}selected="selected"{else}{/if}>{$area['area_name']}</option>
+        {/loop}
+        </select>
+        </div>
+    </div>
+</div>
+         
+    
+<div id="input_one_ok">
+<div class="input_one_ok_a"><input type="submit" name="submit" value="确 定"/></div>
+</div>
+
+<input type="hidden" name="token" value="{$_W['token']}"/>
+</form>
+</div>
+
+<!---->
+<script type="text/javascript">
+    $("#member_height").on("tap", function(){
+        var options = {data: 
+            {php echo json_encode(heightdata());}
+       };
+        var $this = $(this);
+        util.poppicker(options, function(items){
+            $this.val(items[0]);
+        });
+    });
+</script>
+<!---->
+
+<!---->
+<script type="text/javascript">
+    $("#member_weight").on("tap", function(){
+        var options = {data: 
+            {php echo json_encode(weightdata());}
+       };
+        var $this = $(this);
+        util.poppicker(options, function(items){
+            $this.val(items[0]);
+        });
+    });
+</script>
+<!---->
+<script type="text/javascript">
+ wx.ready(function () {
+        $(document).ready(function () {
+            $(".picture_upload_add").click(function () {
+                chooseImage();
+            });
+
+//选择照片开始
+            function chooseImage() {
+                wx.chooseImage({
+                    count: 1, // 默认9
+                    sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+                    sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+                    success: function (res) {
+                        var localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+                        uploadImage(localIds);
+                    }
+                });
+            }
+//选择照片结束
+//上传照片开始
+            function uploadImage(arr) {
+                for (var i = 0; i < arr.length; i++) {
+                    wx.uploadImage({
+                        localId: arr[i], // 需要上传的图片的本地ID，由chooseImage接口获得
+                        isShowProgressTips: 1, // 默认为1，显示进度提示
+                        success: function (res) {
+                            var serverId = res.serverId; // 返回图片的服务器端ID
+                            downloadImage(serverId);
+                        }
+                    });
+                }
+            }
+//上传照片结束
+//下载图片开始
+            function downloadImage(e) {
+                $.post("{php echo $this->createMobileUrl('download_img',array('type'=>'add'));}",
+                        {
+                            picture_type: "{php echo $picture_type ? $picture_type : 'show';}",
+                            media_id: e,
+                        },
+                        function (data, status) {
+						window.location.reload();
+                        });
+            }
+//下载图片结束
+
+        });
+    });
+</script>
+<script type="text/javascript">
+    $("#user_sex_a").on("tap", function(){
+        var options = {data: [
+            {"text":"汉子","value":"1"},
+            {"text":"妹子","value":"2"}
+       ]};
+        var $this = $(this);
+        util.poppicker(options, function(items){
+			$("#user_sex_b").val(items[0].value);
+			 $this.html(items[0].text);
+
+        });
+    });
+</script>
+
+{template 'foot'}

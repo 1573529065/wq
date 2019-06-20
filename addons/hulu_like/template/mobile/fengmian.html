@@ -1,0 +1,66 @@
+{template 'header'}
+{php echo register_jssdk(false);}
+
+<link rel="stylesheet" type="text/css" href="{MODULE_URL}template/mobile/style/fengmian.css">
+<link rel="stylesheet" type="text/css" href="{MODULE_URL}template/mobile/style/user.css">
+
+{template 'banner'}
+
+<div id="fengmian_menu">
+    {loop $fengmian_menu $key $fengmian_menu}
+    <a href="{$fengmian_menu['link']}">
+        <div id="fengmian_menu_style">
+            <div class="fengmian_menu_pic">
+                     <img src="{MODULE_URL}public/menu/{$fengmian_menu['pic']}"/>
+			</div>
+            <div class="fengmian_menu_p">{$fengmian_menu['name']}</div>
+        </div>
+    </a>
+    {/loop}
+</div>
+
+
+<script>
+//$(document).ready(function(){
+var page = 2;
+function getmore(usertype) {
+    var lock = false;    
+    if(lock) return;
+    lock = true;
+    $.post("{php echo $this->createMobileUrl('getmore');}",
+        {
+            type: usertype,page:page
+        },
+        function (data) {
+            if (data != '') {
+                page++;
+                lock = false;                    
+                $("#fengmian_loading").show();
+                $("#user_list").append(data);
+                setTimeout("$('#fengmian_loading').hide()", 2000);
+            } else {
+                $(".more_list").hide();
+                lock = true;
+            }                
+    });
+}
+//});
+</script>
+
+{if empty($user)}{template 'emptydata'}{/if}
+
+<div id="user_list">
+    {template 'user'}
+</div>
+
+<div id="user_list_style" class="more_list" style="text-align:center;margin-top: -100px;margin-bottom: 20px;">
+  <div style="text-align:center" class=""><a href="javascript:" onclick="getmore('{$type}')" style="text-align:center;margin-top: -2000px;font-size: 12px;color: #999;">加载更多<br></a> </div>
+</div>
+
+{template 'distance'}
+
+{template 'footer'}
+
+<div id="fengmian_loading">
+    <div class="fengmian_loading_body"><div class="fengmian_loading_pic">拼命加载中...</div></div>
+</div>

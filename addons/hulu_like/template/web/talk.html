@@ -1,0 +1,30 @@
+{template 'common/header'}
+
+
+<ul class="nav nav-tabs">
+    <li role="presentation" {if $type=="0"}class="active"{/if}><a href="{php echo $this->createWebUrl('talk',array('type'=>'0'));}">所有说说</a></li>
+    <li role="presentation" {if $type=="3"}class="active"{/if}><a href="{php echo $this->createWebUrl('talk',array('type'=>'3'));}">已显示说说</a></li>
+    <li role="presentation" {if $type=="2"}class="active"{/if}><a href="{php echo $this->createWebUrl('talk',array('type'=>'2'));}">待审核说说</a></li>
+    <li role="presentation" {if $type=="1"}class="active"{/if}><a href="{php echo $this->createWebUrl('talk',array('type'=>'1'));}">已屏蔽说说</a></li>
+</ul>
+
+<!--列表循环开始-->
+
+<div class="panel panel-default">
+    <div class="panel-heading">所有说说</div>
+    <div class="panel-body">
+        <table class="table table-hover">
+            {template 'web/banner/talk'}
+            <tbody>
+                {loop $talk $key $talk}
+                {template 'web/page/talk_list'}
+                {/loop}
+            </tbody>
+        </table>{$pagination}
+    </div>
+</div>
+<!--列表循环结束-->
+
+
+
+{template 'common/footer'}

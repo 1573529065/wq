@@ -1,0 +1,57 @@
+{template 'common/header'}
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#home" role="tab" data-toggle="tab">所有查看联系方式</a></li>
+
+ <!--
+  <li role="presentation"><a href="#profile" role="tab" data-toggle="tab">已支付订单</a></li>
+  <li role="presentation"><a href="#messages" role="tab" data-toggle="tab">未支付订单</a></li>
+   
+  <li role="presentation"><a href="#settings" role="tab" data-toggle="tab">Settings</a></li>
+  -->
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane active" id="home">
+
+   <!--列表循环开始-->
+   
+<div class="panel panel-default">
+  <div class="panel-heading">所有查看联系方式</div>
+  <div class="panel-body">
+
+ 
+
+<table class="table table-hover">
+{template 'web/banner/contact'}
+<tbody>
+{loop $contact $key $contact}
+{template 'web/page/contact_list'}
+{/loop}
+</tbody>
+</table>{$pagination}
+</div>
+</div>
+  <!--列表循环结束-->
+
+  </div>
+
+  
+  <!--
+  <div role="tabpanel" class="tab-pane" id="profile">
+
+
+  </div>
+  <div role="tabpanel" class="tab-pane" id="messages">
+
+
+  </div>
+
+  <div role="tabpanel" class="tab-pane" id="settings">...</div>
+  -->
+</div>
+
+
+{template 'common/footer'}

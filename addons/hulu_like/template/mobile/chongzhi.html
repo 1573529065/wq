@@ -1,0 +1,65 @@
+{template 'header'}
+ <link rel="stylesheet" type="text/css" href="{MODULE_URL}template/mobile/style/chongzhi.css">
+ <script type="text/javascript" src="{$_W['siteroot']}app/resource/js/lib/jquery-1.11.1.min.js"></script>
+
+
+<!--顶部菜单导航开始-->
+{php echo topmenu($this->createMobileUrl('my'),'充值'.$make['make_jinbi_name'],'touming.png');}
+<!--顶部菜单导航结束-->
+<form action="" method="POST">
+
+<div id="chongzhi_one">
+
+<div class="chongzhi_one_a">-</div>
+
+<div class="chongzhi_one_b">
+<input type="number" min="1" name="chongzhi_jinbi" value="100" required="required"/>
+</div>
+
+<div class="chongzhi_one_c">+</div>
+
+</div>
+
+<div id="chongzhi_two">充值<span class="chongzhi_jinbi">100</span>{$make['make_jinbi_name']}，支付<span class="chongzhi_money">10</span>元人民币</div>
+
+<div id="chongzhi_ok">
+<input type="submit" name="submit" value="支付"/>
+</div>
+
+<input type="hidden" name="token" value="{$_W['token']}"/>
+</form>
+
+{template 'foot'}
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $("input[name=chongzhi_jinbi]").keyup(function(){
+	  var h=parseInt($("input[name=chongzhi_jinbi]").val());
+	  var s=h/{$make['make_jinbi_bili']};
+	  $(".chongzhi_jinbi").html(h);
+  $(".chongzhi_money").html(s);
+  });
+
+$(".chongzhi_one_a").click(function(){
+	var h=parseInt($("input[name=chongzhi_jinbi]").val());
+	var n=h-1;
+	$("input[name=chongzhi_jinbi]").val(n);
+
+		  var s=n/{$make['make_jinbi_bili']};
+	  $(".chongzhi_jinbi").html(n);
+  $(".chongzhi_money").html(s);
+
+});
+
+$(".chongzhi_one_c").click(function(){
+	var h=parseInt($("input[name=chongzhi_jinbi]").val());
+	var m=h+1;
+	$("input[name=chongzhi_jinbi]").val(m);
+
+		  var s=m/{$make['make_jinbi_bili']};
+	  $(".chongzhi_jinbi").html(m);
+  $(".chongzhi_money").html(s);
+});
+
+});
+</script>

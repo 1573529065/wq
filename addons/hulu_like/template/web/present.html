@@ -1,0 +1,31 @@
+{template 'common/header'}
+
+
+
+
+
+ <!--列表循环开始-->
+   
+<div class="panel panel-default">
+  <div class="panel-heading">礼物获赠记录</div>
+  <div class="panel-body">
+
+<table class="table table-hover">
+{template 'web/banner/present'}
+<tbody>
+{loop $present $key $present}
+{template 'web/page/present_list'}
+{/loop}
+</tbody>
+</table>{$pagination}
+
+</div>
+</div>
+  <!--列表循环结束-->
+
+
+
+
+
+  {template 'common/footer'}
+  

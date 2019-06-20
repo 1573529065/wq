@@ -1,0 +1,43 @@
+/*dashang_top*/
+#dashang_top{width:100%;height:150px;margin:0px auto;position:relative;background-color:#FA4D47;}
+.dashang_top_p{width:100%;height:30px;position:absolute;top:50px;left:0px;z-index:100;
+text-align:center;line-height:30px;font-size:16px;color:#FFF;overflow:hidden;}
+
+.dashang_top_picture{width:82px;height:82px;background-color:#FFF;border-radius:50%;
+position:absolute;bottom:-41px;left:50%;z-index:100;
+-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);-o-transform:translateX(-50%);transform:translateX(-50%);}
+
+.dashang_top_pic{width:76px;height:76px;margin:3px auto;border-radius:50%;}
+
+.dashang_top_pic img{width:100%;height:100%;border-radius:50%;}
+
+/*dashang_list*/
+#dashang_list{width:100%;height:180px;margin:50px auto 0px;}
+.dashang_list_style{float:left;width:25%;height:60px;}
+.dashang_list_p{width:80px;height:40px;margin:10px auto;border:1px solid #FA4D47;border-radius:10px;
+text-align:center;line-height:40px;font-size:16px;color:#FA4D47;overflow:hidden;}
+
+.dashang_list_p span.dashang_list_p_b{line-height:40px;font-size:8px;color:#999;overflow:hidden;}
+
+/*dashang_more*/
+#dashang_more{width:100%;height:40px;margin:10px auto;
+text-align:center;line-height:40px;font-size:16px;color:#FA4D47;overflow:hidden;}
+
+/*dashang_money*/
+#dashang_money{width:100%;height:100%;background-color:rgba(0,0,0,0.6);
+position:fixed;top:0px;left:0px;z-index:100;display:none;}
+#dashang_money_body{width:80%;height:190px;margin:100px auto;background-color:#FFF;border-radius:5px;position:relative;}
+.dashang_money_title{width:100%;height:50px;margin:0px auto;
+text-align:center;line-height:50px;font-size:16px;color:#000;overflow:hidden;}
+
+.dashang_money_off{width:30px;height:30px;background-image:url("../../../public/images/dashang_off.png");background-size:100% 100%;
+position:absolute;top:0px;right:0px;z-index:1000;}
+
+.dashang_money_a{width:80%;height:50px;margin:0px auto;}
+.dashang_money_a input{width:98%;height:40px;margin:5px 1%;border:none;border:1px solid #DDD;border-radius:5px;
+text-align:center;line-height:40px;font-size:16px;color:#000;overflow:hidden;}
+
+.dashang_money_b{width:80%;height:50px;margin:20px auto;}
+.dashang_money_b input{width:98%;height:40px;margin:5px 1%;background-color:#FA4D47;border:none;border:1px solid #FA4D47;border-radius:5px;
+text-align:center;line-height:40px;font-size:16px;color:#FFF;overflow:hidden;}
+

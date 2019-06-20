@@ -1,0 +1,69 @@
+{template 'header'}
+<link rel="stylesheet" type="text/css" href="{MODULE_URL}template/mobile/style/visit.css">
+<link rel="stylesheet" type="text/css" href="{MODULE_URL}template/mobile/style/visit_list.css">
+
+
+<!--顶部菜单导航开始-->
+{php echo topmenu($this->createMobileUrl('my'),'访客','touming.png');}
+<!--顶部菜单导航结束-->
+
+
+<script>
+
+$(document).ready(function(){
+var type="{php echo $type-1;}";
+	  	  $(".visit_banner_style").eq(type).addClass("visit_banner_new");
+});
+</script>
+
+<div id="visit_banner">
+<a href="{php echo $this->createMobileUrl('visit',array('type'=>'1'));}">
+<div class="visit_banner_style">来访</div>
+</a>
+
+<a href="{php echo $this->createMobileUrl('visit',array('type'=>'2'));}">
+<div class="visit_banner_style">查看</div>
+</a>
+
+</div>
+
+
+
+
+
+
+{if $type=="1"}
+
+{if $user['upid']!="4"}
+{php echo getemptydata("只有VIP会员才能查看来访者！请先开通VIP！",$this->createMobileUrl('vip'));}
+{elseif $user['upid']=="4"}
+{if empty($visit)}{template 'emptydata'}{/if}
+{/if}
+
+{elseif $type=="2"}
+{if empty($visit)}{template 'emptydata'}{/if}
+{/if}
+
+<!--明细开始-->
+<div id="visit_list">
+{template 'distance'}
+
+{loop $visit $key $visit}
+
+{if $type=="1"}
+{template 'visit_list1'}
+{elseif $type=="2"}
+{template 'visit_list2'}
+{/if}
+
+{/loop}
+</div>
+<!--明细结束-->
+
+
+
+
+
+
+
+{template 'foot'}

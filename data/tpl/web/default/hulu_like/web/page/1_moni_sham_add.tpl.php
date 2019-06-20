@@ -1,0 +1,53 @@
+<?php defined('IN_IA') or exit('Access Denied');?><form class="form-horizontal" role="form" action="" method="POST">
+
+   
+<div class="panel panel-default">
+  <div class="panel-heading">添加昵称/交友宣言</div>
+  <div class="panel-body">
+
+
+
+
+<!--表单开始-->
+ <div class="form-group">
+    <label class="col-sm-2 control-label">昵称</label>
+    <div class="col-sm-8">
+      <input type="text" name="moni_sham_nickname" class="form-control" id="" placeholder="请输入昵称">
+
+	  <span class="help-block">昵称</span>
+
+    </div>
+  </div>
+<!--表单结束-->
+
+
+<!--表单开始-->
+ <div class="form-group">
+    <label class="col-sm-2 control-label">交友宣言</label>
+    <div class="col-sm-8">
+<textarea class="form-control" rows="3" name="moni_sham_content"></textarea>
+
+	  <span class="help-block">交友宣言</span>
+
+    </div>
+  </div>
+<!--表单结束-->
+
+
+
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+		  <input class="btn btn-default" type="submit" name="submit" value="提 交">
+    </div>
+  </div>
+
+
+
+
+
+</div>
+</div>
+
+  <input type="hidden" name="token" value="<?php  echo $_W['token'];?>"/>
+</form>

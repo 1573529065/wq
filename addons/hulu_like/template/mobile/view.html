@@ -1,0 +1,333 @@
+{template 'header'}
+  <link rel="stylesheet" type="text/css" href="{MODULE_URL}template/mobile/style/view.css">
+<script type="text/javascript" src="{MODULE_URL}template/mobile/style/view.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="{MODULE_URL}public/swiper.min.css">
+<script type="text/Javascript" src="{MODULE_URL}public/swiper.jquery.min.js"></script>
+
+<!---->
+<script>
+
+function lookpicture(e){
+	wx.ready(function(){
+
+wx.previewImage({
+    current:e, 
+    urls: [
+	{loop $picture $key $picture}
+	"{$_W['attachurl']}{$picture['picture_url']}",
+	{/loop}
+	] 
+});
+
+	});
+
+}
+
+
+$(document).ready(function(){
+
+{if !empty($like)}
+$(".view_top_c_2").html("已喜欢");
+{/if}
+	//喜欢开始
+	$(".view_top_c_2").click(function(){
+    $.post("{php echo $this->createMobileUrl('anlian');}",
+    {
+      like_openid:"{$user['openid']}",
+     
+    },
+    function(data,status){
+		$(".view_top_c_2").html("已喜欢");
+     
+    });
+  });
+	//喜欢结束
+
+	//查看联系方式开始
+  $(".view_contact_c").click(function(){
+    $.post("{php echo $this->createMobileUrl('get_contact');}",
+    {
+      user_uid:"{$user['uid']}",
+    },
+    function(data,status){
+        if (data == 'need_vip') {
+            if (confirm('查看该会员的联系方式需要先开通VIP,去开通？')) {
+                location.href='{php echo $_W['siteroot'] . "app/index.php?i=" . $_W['uniacid'] . "&c=entry&m=hulu_like&do=vip";}';
+            }
+        } else {
+            alert(data);
+        }
+        
+    });
+  });
+  //查看联系方式结束
+
+});
+</script>
+
+
+<!---->
+
+<!--顶部开始-->
+  <div id="view_top">
+
+  <div id="view_top_a">
+  <div class="view_top_a_avatar">
+  <div class="view_top_a_avatar_pic">
+  {if empty($user['user_img'])}
+<img src="{$user['avatar']}"/>
+{else}
+<img src="{php echo $_W['attachurl'].$user['user_img'];}"/>
+{/if}
+  </div>
+  </div>
+  </div>
+
+  <div id="view_top_b">
+    <div class="view_top_b_1">{$user['nickname']}</div>
+  </div>
+
+<div id="view_top_c">
+<a href="{php echo $this->createMobileUrl('liaotian',array('openid'=>$user['openid']));}">
+<div class="view_top_c_1">聊一聊</div>
+</a>
+
+<div class="view_top_c_2">喜欢</div>
+
+</div>
+
+  </div>
+<!--顶部结束-->
+
+<!---->
+<div id="view_one">
+<div class="view_one_a view_one_new">基本资料</div>
+<div class="view_one_b">择偶要求</div>
+</div>
+
+<!---->
+
+<div id="view_body1">
+
+<!--送礼开始-->
+<div id="view_gift">
+
+<a href="{php echo $this->createMobileUrl('gift',array('receive'=>$user['openid']));}">
+<div class="view_gift_style">
+<div class="view_gift_style_style">
+<div class="view_gift_style_pic" style="background-image:url('{MODULE_URL}public/images/view_gift.png');"></div>
+<div class="view_gift_style_p">送礼</div>
+</div>
+</div>
+</a>
+
+<a href="{php echo $this->createMobileUrl('dashang',array('type'=>'1','receive'=>$user['openid']));}">
+<div class="view_gift_style">
+<div class="view_gift_style_style">
+<div class="view_gift_style_pic" style="background-image:url('{MODULE_URL}public/images/view_dashang.png');"></div>
+<div class="view_gift_style_p">打赏</div>
+</div>
+</div>
+</a>
+
+<a href="{php echo $this->createMobileUrl('liaotian',array('openid'=>$user['openid']));}">
+<div class="view_gift_style">
+<div class="view_gift_style_style">
+<div class="view_gift_style_pic" style="background-image:url('{MODULE_URL}public/images/view_chat.png');"></div>
+<div class="view_gift_style_p">聊聊</div>
+</div>
+</div>
+</a>
+
+
+<div class="view_gift_xian1"></div>
+<div class="view_gift_xian2"></div>
+
+
+</div>
+<!--送礼结束-->
+
+<!---->
+<div id="view_title"><div class="view_title_p">相册<span>（{$picture_num}张）</span></div></div>
+<!---->
+
+<!--相册开始-->
+
+
+{if (!empty($picture))}
+<div id="view_picture">
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+	{loop $picture_page $key $picture}
+        <div class="swiper-slide">
+		{loop $picture $key $picture}
+		<div class="view_picture_list"><div class="view_picture_list_pic" onclick="lookpicture('{$_W['attachurl']}{$picture['picture_url']}');"><img src="{$_W['attachurl']}{$picture['picture_url']}"/></div></div>
+		{/loop}
+		</div>
+		{/loop}
+      
+    </div>
+    <div class="swiper-pagination"></div>
+    <!--
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    
+    <div class="swiper-scrollbar"></div>
+	-->
+</div>
+</div>
+{else}<div id="view_picture_empty">这个家伙很懒，照片都没有留下！</div>{/if}
+
+<!--相册结束-->
+<div id="view_title"><div class="view_title_p">视频<span>（{$picture_num_video}个）</span></div></div>
+{if (!empty($picture_video))}
+<div id="view_picture">
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+	{loop $picture_page_video $key $picture_video}
+        <div class="swiper-slide">
+		{loop $picture_video $key $picture_video}
+		<div class="view_picture_list">
+		<div class="view_picture_list_pic" onclick="lookpicture('{$_W['attachurl']}{$picture_video['picture_url']}');">
+		<video src="{$_W['attachurl']}{$picture_video['picture_url']}" width="150" height="100" controls ></video>
+		</div>
+		</div>
+		{/loop}
+		</div>
+		{/loop}
+      
+    </div>
+    <div class="swiper-pagination"></div>
+    <!--
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    
+    <div class="swiper-scrollbar"></div>
+	-->
+</div>
+</div>
+{else}<div id="view_picture_empty">这个家伙很懒，视频都没有留下！</div>{/if}
+
+<!--视频结束-->
+{template 'view_liwu'}
+
+<!---->
+<div id="view_title"><div class="view_title_p">交友宣言</div></div>
+<!---->
+<div id="view_xuanyan">
+<div class="view_xuanyan_p">
+{if $member['member_content']}{$member['member_content']}{else}这个家伙很懒，什么都没有留下！{/if}
+</div></div>
+
+<!--联系方式开始-->
+
+<div id="view_contact">
+<div class="view_contact_a"><div class="view_contact_a_pic"><img src="{MODULE_URL}public/images/e1.png"/></div></div>
+<div class="view_contact_b">联系方式</div>
+<div class="view_contact_c">付费查看 ></div>
+
+</div>
+
+<!--联系方式结束-->
+
+<!---->
+<div id="view_title"><div class="view_title_p">基本资料</div></div>
+<!---->
+
+<div id="view_two">
+
+<div class="view_two_style">
+<div class="view_two_a">性别</div><div class="view_two_b">{if $user['sex']=='1'}汉子{elseif $user['sex']=='2'}女{elseif $user['sex']=='0'}未知{else}{/if}</div>
+</div>
+
+<div class="view_two_style">
+<div class="view_two_a">出生日期</div><div class="view_two_b">{php echo date('Y-m-d',$member['member_birthday']);}</div>
+</div>
+
+<div class="view_two_style">
+<div class="view_two_a">城市</div><div class="view_two_b">{$member['member_province']}{$member['member_city']}{$member['member_district']}</div>
+</div>
+
+<div class="view_two_style">
+<div class="view_two_a">身高</div><div class="view_two_b">{$member['member_height']}CM</div>
+</div>
+
+
+<div class="view_two_style">
+<div class="view_two_a">体重</div><div class="view_two_b">{$member['member_weight']}KG</div>
+</div>
+
+<div class="view_two_style">
+<div class="view_two_a">学历</div><div class="view_two_b">{php echo $educationdata[$member['member_edu']-1]['education_name'];}</div>
+</div>
+<div class="view_two_style">
+<div class="view_two_a">月均收入</div><div class="view_two_b">{php echo $salarydata[$member['member_salary']-1]['salary_name'];}</div>
+</div>
+<div class="view_two_style">
+<div class="view_two_a">房产情况</div><div class="view_two_b">{php echo $housedata[$member['member_house']-1]['house_name'];}</div>
+</div>  
+<div class="view_two_style">
+<div class="view_two_a">职业</div><div class="view_two_b">{php echo $careerdata[$member['member_career']-1]['career_name'];}</div>
+</div> 
+<div class="view_two_style">
+<div class="view_two_a">民族</div><div class="view_two_b">{php echo $member['member_nation'] ? $member['member_nation'] : '汉族'}</div>
+</div>    
+  
+<div class="view_two_style">
+<div class="view_two_a">交友目的</div><div class="view_two_b">{php echo $purposedata[$member['member_purpose']-1]['purpose_name'];}</div>
+</div>
+
+<div class="view_two_style">
+<div class="view_two_a">感情状态</div><div class="view_two_b">{php echo $feelingdata[$member['member_feeling']-1]['feeling_name'];}</div>
+</div>
+
+
+<div class="view_two_style">
+<div class="view_two_a">婚姻状态</div><div class="view_two_b">{php echo $marrydata[$member['member_marry']-1]['marry_name'];}</div>
+</div>
+
+</div>
+
+</div>
+
+<!--择偶要求开始-->
+<div id="view_body2">
+
+<!---->
+<div id="view_title"><div class="view_title_p">择偶要求</div></div>
+<!---->
+
+<div id="view_two">
+
+<div class="view_two_style">
+<div class="view_two_a">年龄要求</div><div class="view_two_b">{$request['request_age_small']}-{$request['request_age_big']}岁</div>
+</div>
+
+<div class="view_two_style">
+<div class="view_two_a">身高要求</div><div class="view_two_b">{$request['request_height_small']}-{$request['request_height_big']}CM</div>
+</div>
+
+<div class="view_two_style">
+<div class="view_two_a">体重要求</div><div class="view_two_b">{$request['request_weight_small']}-{$request['request_weight_big']}KG</div>
+</div>
+
+<div class="view_two_style">
+<div class="view_two_a">薪资要求</div><div class="view_two_b">{php echo $salarydata[$request['request_salary']-1]['salary_name'];}</div>
+</div>
+
+<div class="view_two_style">
+<div class="view_two_a">学历要求</div><div class="view_two_b">{php echo $educationdata[$request['request_education']-1]['education_name'];}</div>
+</div>
+
+
+
+<div class="view_two_style">
+<div class="view_two_a">地域要求</div><div class="view_two_b">{php echo $areadata[$request['request_area']-1]['area_name'];}</div>
+</div>
+
+</div>
+</div>
+<!--择偶要求结束-->
+
+{template 'footer'}
