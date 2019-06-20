@@ -272,6 +272,7 @@ class Hulu_likeModuleSite extends WeModuleSite
 	public function doMobileGetmore()
 	{
 		global $_W, $_GPC;
+		// todo 点击加载更多
 		$page = (int) $_GPC['page'];
 		$page_size = 20;
 		$type = $_GPC['type'];

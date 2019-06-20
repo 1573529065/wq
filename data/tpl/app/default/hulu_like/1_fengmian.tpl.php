@@ -54,7 +54,7 @@ function getmore(usertype) {
 </div>
 
 <div id="user_list_style" class="more_list" style="text-align:center;margin-top: -100px;margin-bottom: 20px;">
-  <div style="text-align:center" class=""><a href="javascript:" onclick="getmore('<?php  echo $type;?>')" style="text-align:center;margin-top: -2000px;font-size: 12px;color: #999;">加载更多<br></a> </div>
+  <div style="text-align:center" class=""><a href="javascript:" onclick="getmore('<?php  echo $type;?>')" style="text-align:center;margin-top: -2000px;font-size: 12px;color: red;">点击加载更多<br></a> </div>
 </div>
 
 <?php (!empty($this) && $this instanceof WeModuleSite) ? (include $this->template('distance', TEMPLATE_INCLUDEPATH)) : (include template('distance', TEMPLATE_INCLUDEPATH));?>

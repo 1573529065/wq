@@ -24,7 +24,7 @@
 //$(document).ready(function(){
 var page = 2;
 function getmore(usertype) {
-    var lock = false;    
+    var lock = false;
     if(lock) return;
     lock = true;
     $.post("{php echo $this->createMobileUrl('getmore');}",
@@ -34,14 +34,14 @@ function getmore(usertype) {
         function (data) {
             if (data != '') {
                 page++;
-                lock = false;                    
+                lock = false;
                 $("#fengmian_loading").show();
                 $("#user_list").append(data);
                 setTimeout("$('#fengmian_loading').hide()", 2000);
             } else {
                 $(".more_list").hide();
                 lock = true;
-            }                
+            }
     });
 }
 //});
@@ -54,7 +54,7 @@ function getmore(usertype) {
 </div>
 
 <div id="user_list_style" class="more_list" style="text-align:center;margin-top: -100px;margin-bottom: 20px;">
-  <div style="text-align:center" class=""><a href="javascript:" onclick="getmore('{$type}')" style="text-align:center;margin-top: -2000px;font-size: 12px;color: #999;">加载更多<br></a> </div>
+  <div style="text-align:center" class=""><a href="javascript:" onclick="getmore('{$type}')" style="text-align:center;margin-top: -2000px;font-size: 12px;color: red;">点击加载更多<br></a> </div>
 </div>
 
 {template 'distance'}

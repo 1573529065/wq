@@ -440,6 +440,7 @@ function getgaptime($oldtime) {
     if (!empty($oldtime)) {
         $gaptime = time() - $oldtime;
     } elseif (empty($oldtime)) {
+//        todo  夜晚十二点至早九点
         if (date('H') < 9) {
             $gaptime = rand(0, 3600*8);
         }else{
