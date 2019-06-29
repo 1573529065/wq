@@ -93,12 +93,7 @@ $pic=getpicture($_W['uniacid'],$talk['talk_id'],'talk');
 </div>
 </div>
 
-<div onclick="pinglun('<?php  echo $talk['talk_id'];?>');" class="talk_list_right_3_b">
-<div class="talk_list_right_3_b_style">
-<div class="talk_list_right_3_b_pic"><div class="talk_list_right_3_b_pic_img"><img src="<?php echo MODULE_URL;?>public/images/pinglun.png"/></div></div>
-<div class="talk_list_right_3_b_p">评论</div>
-<div class="talk_list_right_3_b_n" id="talk_list_ping_<?php  echo $talk['talk_id'];?>"><?php  echo gettalkpinglunnum($_W['uniacid'],$talk['talk_id']);?></div>
-</div>
+<div class="talk_list_right_3_b">
 </div>
 
 

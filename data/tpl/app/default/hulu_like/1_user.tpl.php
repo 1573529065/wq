@@ -57,7 +57,7 @@
             </div>
             -->
             <div class="distance" style="display:none;"><?php  echo $user['uid'];?>,<?php  echo $user['address'];?></div>
-            <div class="user_list_c_4"><?php  echo getgaptime($user['login_time']);?></div>
+            <!--<div class="user_list_c_4"><?php  echo getgaptime($user['login_time']);?></div>-->
         </div>
 
 
