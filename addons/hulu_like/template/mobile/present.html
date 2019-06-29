@@ -8,20 +8,20 @@
 {if empty($present)}{template 'emptydata'}{/if}
 
 <div id="gift_list">
-{loop $present $key $present}
+    {loop $present $key $present}
 
-<a href="{php echo $this->createMobileUrl('view',array('vid'=>getuid($_W['uniacid'],$present['present_send'])));}">
+    <a href="{php echo $this->createMobileUrl('view',array('vid'=>getuid($_W['uniacid'],$present['present_send'])));}">
 
-<div class="gift_list_style">
-<div class="gift_list_pic">
-<img src="{$_W['attachurl']}{php echo getgiftpic($_W['uniacid'],$present['gift_id']);}"/>
-</div>
-<div class="gift_list_name">{php echo getgiftname($_W['uniacid'],$present['gift_id']);}</div>
-<div class="gift_list_money">￥：{php echo getgiftmoney($_W['uniacid'],$present['gift_id']);}</div>
-</div>
-</a>
+        <div class="gift_list_style">
+            <div class="gift_list_pic">
+                <img src="{$_W['attachurl']}{php echo getgiftpic($_W['uniacid'],$present['gift_id']);}"/>
+            </div>
+            <div class="gift_list_name">{php echo getgiftname($_W['uniacid'],$present['gift_id']);}</div>
+            <div class="gift_list_money">￥：{php echo getgiftmoney($_W['uniacid'],$present['gift_id']);}</div>
+        </div>
+    </a>
 
-{/loop}
+    {/loop}
 </div>
 
 {template 'foot'}

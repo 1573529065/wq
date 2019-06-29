@@ -8,40 +8,40 @@
 
 <div id="input_one">
 
-<form action="" method="POST">
+    <form action="" method="POST">
 
-<div id="input_one_style">
-<div class="input_one_a">姓名<span>*</span></div>
-<div class="input_one_b"><input type="text" name="more_tixian_name" placeholder="请输入提现姓名" required="required" value="{$more['more_tixian_name']}"/></div>
+        <div id="input_one_style">
+            <div class="input_one_a">姓名<span>*</span></div>
+            <div class="input_one_b"><input type="text" name="more_tixian_name" placeholder="请输入提现姓名"
+                                            required="required" value="{$more['more_tixian_name']}"/></div>
+        </div>
+
+        <div id="input_one_style">
+            <div class="input_one_a">手机号<span>*</span></div>
+            <div class="input_one_b"><input type="number" name="more_tixian_tel" placeholder="请输入提现手机号"
+                                            required="required" value="{$more['more_tixian_tel']}"/></div>
+        </div>
+
+        <div id="input_one_style">
+            <div class="input_one_a">微信<span>*</span></div>
+            <div class="input_one_b"><input type="text" name="more_tixian_wechat" placeholder="请输入提现微信"
+                                            required="required" value="{$more['more_tixian_wechat']}"/></div>
+        </div>
+
+        <div id="input_one_style">
+            <div class="input_one_a">支付宝</div>
+            <div class="input_one_b"><input type="text" name="more_tixian_alipay" placeholder="请输入提现支付宝"
+                                            value="{$more['more_tixian_alipay']}"/></div>
+        </div>
+
+
+        <div id="input_one_ok">
+            <div class="input_one_ok_a"><input type="submit" name="submit" value="修 改"/></div>
+        </div>
+
+        <input type="hidden" name="token" value="{$_W['token']}"/>
+    </form>
 </div>
-
-<div id="input_one_style">
-<div class="input_one_a">手机号<span>*</span></div>
-<div class="input_one_b"><input type="number" name="more_tixian_tel" placeholder="请输入提现手机号" required="required" value="{$more['more_tixian_tel']}"/></div>
-</div>
-
-<div id="input_one_style">
-<div class="input_one_a">微信<span>*</span></div>
-<div class="input_one_b"><input type="text" name="more_tixian_wechat" placeholder="请输入提现微信" required="required" value="{$more['more_tixian_wechat']}"/></div>
-</div>
-
-<div id="input_one_style">
-<div class="input_one_a">支付宝</div>
-<div class="input_one_b"><input type="text" name="more_tixian_alipay" placeholder="请输入提现支付宝" value="{$more['more_tixian_alipay']}"/></div>
-</div>
-
-
-
-<div id="input_one_ok">
-<div class="input_one_ok_a"><input type="submit" name="submit" value="修 改"/></div>
-</div>
-
-<input type="hidden" name="token" value="{$_W['token']}"/>
-</form>
-</div>
-
-
-
 
 
 {template 'foot'}

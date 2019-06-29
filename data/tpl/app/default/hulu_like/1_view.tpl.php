@@ -246,7 +246,7 @@ $(".view_top_c_2").html("已喜欢");
 </div>
 
 <div class="view_two_style">
-<div class="view_two_a">城市</div><div class="view_two_b"><?php  echo $member['member_province'];?><?php  echo $member['member_city'];?><?php  echo $member['member_district'];?></div>
+<div class="view_two_a">城市</div><div class="view_two_b"><?php  echo getCity($_W['clientip']);?><?php  echo $member['member_province'];?><?php  echo $member['member_city'];?><?php  echo $member['member_district'];?></div>
 </div>
 
 <div class="view_two_style">

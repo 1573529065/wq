@@ -526,9 +526,37 @@ function gettimessssssss($startdate){
 		
 	return  $dstr;
 
-} 
+}
 
 
+function getCity($ip = '')
+{
+//    $ip = '122.192.15.156';
+    if($ip == ''){  ;
+//        $url = "http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json";
+//        $ip=json_decode(file_get_contents($url),true);
+//        $data = $ip;
+//        print_r($data);
+//        die;
+        $data = '';
+    }else{
+        $url="http://ip.taobao.com/service/getIpInfo.php?ip=".$ip;
+        $ip=json_decode(file_get_contents($url));
+        if((string)$ip->code=='1'){
+            return false;
+        }
+        $data = (array)$ip->data;
+//        echo $_GPC['address_lon'];
+//        echo $_GPC['address_lat'];
+        print_r($data);
+//        die;
+        $region = !empty($data['region']) ? $data['region'] . '省' : '';
+        $city = !empty($data['city']) ? $data['city'] . '市' : '';
+        $data =  $region . $city;
+    }
+
+    return $data;
+}
 
 
 

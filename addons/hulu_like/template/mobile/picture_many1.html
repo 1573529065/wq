@@ -1,70 +1,99 @@
 <style type="text/css">
-#picture_many{width:100%;height:120px;margin:0px auto;overflow:auto;}
-#picture_many_style{float:left;width:25%;height:80px;}
-.picture_many_ok{width:60px;height:60px;margin:10px auto;
-background-image:url("{MODULE_URL}public/images/upload.png");background-size:100% 100%;}
-.picture_many_pic{width:60px;height:60px;margin:10px auto;}
-.picture_many_pic img{width:100%;height:100%;}
+    #picture_many {
+        width: 100%;
+        height: 120px;
+        margin: 0px auto;
+        overflow: auto;
+    }
+
+    #picture_many_style {
+        float: left;
+        width: 25%;
+        height: 80px;
+    }
+
+    .picture_many_ok {
+        width: 60px;
+        height: 60px;
+        margin: 10px auto;
+        background-image: url("{MODULE_URL}public/images/upload.png");
+        background-size: 100% 100%;
+    }
+
+    .picture_many_pic {
+        width: 60px;
+        height: 60px;
+        margin: 10px auto;
+    }
+
+    .picture_many_pic img {
+        width: 100%;
+        height: 100%;
+    }
 </style>
 
 <div id="picture_many">
-<div id="picture_many_style"><div class="picture_many_ok"></div></div>
-<!--
-<div id="picture_many_style"><div class="picture_many_pic"></div></div>
--->
+    <div id="picture_many_style">
+        <div class="picture_many_ok"></div>
+    </div>
+    <!--
+    <div id="picture_many_style"><div class="picture_many_pic"></div></div>
+    -->
 </div>
 
 
 <script>
-wx.ready(function(){
+    wx.ready(function () {
 
-//Ñ¡ÔñÕÕÆ¬¿ªÊ¼
-  $(".picture_many_ok").click(function(){
-wx.chooseImage({
-    count:1, // Ä¬ÈÏ9
-    sizeType: ['original', 'compressed'], // ¿ÉÒÔÖ¸¶¨ÊÇÔ­Í¼»¹ÊÇÑ¹ËõÍ¼£¬Ä¬ÈÏ¶þÕß¶¼ÓÐ
-    sourceType: ['album', 'camera'], // ¿ÉÒÔÖ¸¶¨À´Ô´ÊÇÏà²á»¹ÊÇÏà»ú£¬Ä¬ÈÏ¶þÕß¶¼ÓÐ
-    success: function (res) {
-        var localIds = res.localIds; // ·µ»ØÑ¡¶¨ÕÕÆ¬µÄ±¾µØIDÁÐ±í£¬localId¿ÉÒÔ×÷Îªimg±êÇ©µÄsrcÊôÐÔÏÔÊ¾Í¼Æ¬
-		uploadImage(localIds);
-    }
-});
-  });
-//Ñ¡ÔñÕÕÆ¬½áÊø
+//Ñ¡ï¿½ï¿½ï¿½ï¿½Æ¬ï¿½ï¿½Ê¼
+        $(".picture_many_ok").click(function () {
+            wx.chooseImage({
+                count: 1, // Ä¬ï¿½ï¿½9
+                sizeType: ['original', 'compressed'], // ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Ô­Í¼ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½Í¼ï¿½ï¿½Ä¬ï¿½Ï¶ï¿½ï¿½ß¶ï¿½ï¿½ï¿½
+                sourceType: ['album', 'camera'], // ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½á»¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½Ï¶ï¿½ï¿½ß¶ï¿½ï¿½ï¿½
+                success: function (res) {
+                    var localIds = res.localIds; // ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½Æ¬ï¿½Ä±ï¿½ï¿½ï¿½IDï¿½Ð±ï¿½localIdï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªimgï¿½ï¿½Ç©ï¿½ï¿½srcï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾Í¼Æ¬
+                    uploadImage(localIds);
+                }
+            });
+        });
+//Ñ¡ï¿½ï¿½ï¿½ï¿½Æ¬ï¿½ï¿½ï¿½ï¿½
 
 
-//ÉÏ´«ÕÕÆ¬¿ªÊ¼
-function uploadImage(e){
-	for(var i=0;i<e.length;i++){
-wx.uploadImage({
-    localId:e[i], // ÐèÒªÉÏ´«µÄÍ¼Æ¬µÄ±¾µØID£¬ÓÉchooseImage½Ó¿Ú»ñµÃ
-    isShowProgressTips: 1, // Ä¬ÈÏÎª1£¬ÏÔÊ¾½ø¶ÈÌáÊ¾
-    success: function (res) {
-        var serverId = res.serverId; // ·µ»ØÍ¼Æ¬µÄ·þÎñÆ÷¶ËID
-		alert(serverId);
-		downloadImage(serverId);
+//ï¿½Ï´ï¿½ï¿½ï¿½Æ¬ï¿½ï¿½Ê¼
+        function uploadImage(e) {
+            for (var i = 0; i < e.length; i++) {
+                wx.uploadImage({
+                    localId: e[i], // ï¿½ï¿½Òªï¿½Ï´ï¿½ï¿½ï¿½Í¼Æ¬ï¿½Ä±ï¿½ï¿½ï¿½IDï¿½ï¿½ï¿½ï¿½chooseImageï¿½Ó¿Ú»ï¿½ï¿½
+                    isShowProgressTips: 1, // Ä¬ï¿½ï¿½Îª1ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾
+                    success: function (res) {
+                        var serverId = res.serverId; // ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ID
+                        alert(serverId);
+                        downloadImage(serverId);
 
-    }
-});
-}
-}
-//ÉÏ´«ÕÕÆ¬½áÊø
+                    }
+                });
+            }
+        }
 
-//ÏÂÔØÕÕÆ¬¿ªÊ¼
-function downloadImage(m){
-    $.post("{php echo $this->createMobileUrl('download',array('type'=>'1'));}",
-    {
-		media_id:m,
-   
-    },
-    function(data,status){
-      $("#picture_many").append("<div id='picture_many_style'><div class='picture_many_pic'><img src='{$_W['attachurl']}"+data+"'/></div><input type='hidden' name='picture[]' value='"+data+"'/></div>");
-	  //¿ªÊ¼
-	  
-	  //½áÊø
+//ï¿½Ï´ï¿½ï¿½ï¿½Æ¬ï¿½ï¿½ï¿½ï¿½
+
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¬ï¿½ï¿½Ê¼
+        function downloadImage(m) {
+            $.post("{php echo $this->createMobileUrl('download',array('type'=>'1'));}",
+                {
+                    media_id: m,
+
+                },
+                function (data, status) {
+                    $("#picture_many").append("<div id='picture_many_style'><div class='picture_many_pic'><img src='{$_W['attachurl']}" + data + "'/></div><input type='hidden' name='picture[]' value='" + data + "'/></div>");
+                    //ï¿½ï¿½Ê¼
+
+                    //ï¿½ï¿½ï¿½ï¿½
+                });
+        }
+
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¬ï¿½ï¿½ï¿½ï¿½
+
     });
-}
-//ÏÂÔØÕÕÆ¬½áÊø
-
-});
-	</script>
+</script>

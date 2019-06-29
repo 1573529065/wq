@@ -4,41 +4,61 @@
 
 
 <style type="text/css">
-#hulu{width:96%;height:60px;margin:10px auto;background-color:#FFF;}
-#hulu_style{float:left;width:20%;height:60px;}
-.hulu_pic{width:60px;height:60px;margin:0px auto;}
-.hulu_pic img{width:60px;height:60px;}
+    #hulu {
+        width: 96%;
+        height: 60px;
+        margin: 10px auto;
+        background-color: #FFF;
+    }
+
+    #hulu_style {
+        float: left;
+        width: 20%;
+        height: 60px;
+    }
+
+    .hulu_pic {
+        width: 60px;
+        height: 60px;
+        margin: 0px auto;
+    }
+
+    .hulu_pic img {
+        width: 60px;
+        height: 60px;
+    }
 </style>
 
 <div id="hulu">
-{loop $pic $key $pic}
-<div id="hulu_style">
-<input type="hidden" id="hulu_input_{$key}" name="{$pic['name']}" value="" class="form-control" autocomplete="off" readonly="readonly">
-<div id="hulu_pic_{$key}" class="hulu_pic">
-{if $key==0}
-<img src="{MODULE_URL}public/images/upload.png"/>
-{else}
-<img src="{MODULE_URL}public/images/touming.png"/>
-{/if}
-</div>
-</div>
+    {loop $pic $key $pic}
+    <div id="hulu_style">
+        <input type="hidden" id="hulu_input_{$key}" name="{$pic['name']}" value="" class="form-control"
+               autocomplete="off" readonly="readonly">
+        <div id="hulu_pic_{$key}" class="hulu_pic">
+            {if $key==0}
+            <img src="{MODULE_URL}public/images/upload.png"/>
+            {else}
+            <img src="{MODULE_URL}public/images/touming.png"/>
+            {/if}
+        </div>
+    </div>
 
-<!--开始-->
+    <!--开始-->
 
-<script>
-	util.image($('#hulu_pic_{$key}'), function(url){
-		$('#hulu_pic_{$key}').prev().val(url.attachment);
-		$('#hulu_pic_{$key}').find('img').attr('src',url.url);
-		$('#hulu_pic_{php echo $key+1;}').find('img').attr('src','{MODULE_URL}public/images/upload.png');
+    <script>
+        util.image($('#hulu_pic_{$key}'), function (url) {
+            $('#hulu_pic_{$key}').prev().val(url.attachment);
+            $('#hulu_pic_{$key}').find('img').attr('src', url.url);
+            $('#hulu_pic_{php echo $key+1;}').find('img').attr('src', '{MODULE_URL}public/images/upload.png');
 
-	}, {
-		crop : false,
-		multiple : false
-	});
-</script>
+        }, {
+            crop: false,
+            multiple: false
+        });
+    </script>
 
 
-<!--结束-->
-{/loop}
+    <!--结束-->
+    {/loop}
 </div>
 
