@@ -165,7 +165,7 @@
 				<div class="panel panel-menu">
 					<?php  if($frame_section['title']) { ?>
 					<div class="panel-heading">
-						<span class="no-collapse"><?php  echo $frame_section['title'];?><i class="wi wi-appsetting pull-right setting"></i></span>
+						<span class="no-collapse">111<?php  echo $frame_section['title'];?><i class="wi wi-appsetting pull-right setting"></i></span>
 					</div>
 					<?php  } ?>
 					<ul class="list-group">
@@ -187,7 +187,9 @@
 											<?php  } ?>
 										<?php  } ?>
 										<?php  echo $menu['title'];?>
-										<?php  if(!empty($menu['need_upload']) && $action != 'front-download') { ?><i class="wi wi-info-sign color-red" style="font-size:14px;position:relative;bottom:4px"></i><?php  } ?>
+										<?php  if(!empty($menu['need_upload']) && $action != 'front-download') { ?>
+										<i class="wi wi-info-sign color-red" style="font-size:14px;position:relative;bottom:4px"></i>
+										<?php  } ?>
 										</a>
 									</li>
 									<?php  } ?>

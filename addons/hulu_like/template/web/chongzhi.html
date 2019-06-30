@@ -4,8 +4,10 @@
 
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active"><a class="tablink" data-itemv="0" href="#home" aria-controls="home" role="tab" data-toggle="tab">充值记录</a></li>
-        <li role="presentation"><a class="tablink" data-itemv="1" href="#profile" aria-controls="profile" role="tab" data-toggle="tab">消费记录</a></li>
+        <li role="presentation" class="active"><a class="tablink" data-itemv="0" href="#home" aria-controls="home"
+                                                  role="tab" data-toggle="tab">充值记录</a></li>
+        <li role="presentation"><a class="tablink" data-itemv="1" href="#profile" aria-controls="profile" role="tab"
+                                   data-toggle="tab">消费记录</a></li>
 
         <!--
     <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
@@ -24,10 +26,11 @@
                     <table class="table table-hover">
                         {template 'web/banner/chongzhi'}
                         <tbody>
-                            {loop $chongzhi1 $key $chongzhi}
-                            {template 'web/page/chongzhi_list'}
-                            {/loop}
-                        </tbody>{$pagination_0}
+                        {loop $chongzhi1 $key $chongzhi}
+                        {template 'web/page/chongzhi_list'}
+                        {/loop}
+                        </tbody>
+                        {$pagination_0}
                     </table>
                 </div>
             </div>
@@ -43,11 +46,12 @@
                     <table class="table table-hover">
                         {template 'web/banner/chongzhi'}
                         <tbody>
-                            {loop $chongzhi2 $key $chongzhi}
-                            {template 'web/page/chongzhi_list'}
-                            {/loop}
+                        {loop $chongzhi2 $key $chongzhi}
+                        {template 'web/page/chongzhi_list'}
+                        {/loop}
                         </tbody>
-                    </table>{$pagination_1}
+                    </table>
+                    {$pagination_1}
                 </div>
             </div>
             <!--列表循环结束-->
@@ -65,7 +69,7 @@
 
 <script type="text/javascript">
     var flag = 0;
-    $('.tablink').click(function() {
+    $('.tablink').click(function () {
         if (flag == 1) {
             return;
         }
@@ -76,11 +80,11 @@
                 url: '{php echo $this->createWebUrl('setpageparam');}',
                 type: 'post',
                 dataType: 'text',
-                data: {set_page_param:post_v},
-                success:function(data){
+                data: {set_page_param: post_v},
+                success: function (data) {
                     flag = 0;
-                }                
-            });            
+                }
+            });
         }
     });
     $("a[data-itemv$='{$hit_tab}']").click();

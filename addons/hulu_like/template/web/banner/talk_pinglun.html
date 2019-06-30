@@ -2,15 +2,15 @@
 
 <tr>
 
-<th>ID</th>
+    <th>ID</th>
 
-<th>评论者者头像</th>
-<th>评论者昵称</th>
+    <th>评论者者头像</th>
+    <th>评论者昵称</th>
 
-<th>评论内容</th>
-<th>所属说说</th>
+    <th>评论内容</th>
+    <th>所属说说</th>
 
-<th>时间/IP/平台/设备</th>
+    <th>时间/IP/平台/设备</th>
 </tr>
 
 </thead>

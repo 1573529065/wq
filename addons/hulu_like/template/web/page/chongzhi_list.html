@@ -1,36 +1,31 @@
 <tr>
 
-<td>{$chongzhi['chongzhi_id']}</td>
+    <td>{$chongzhi['chongzhi_id']}</td>
+
+    <td>{php echo getnickname($_W['uniacid'],$chongzhi['openid']);}</td>
+
+    <td><img style="width:60px;height:60px;border-radius:50%;"
+             src="{php echo getavatar($_W['uniacid'],$chongzhi['openid']);}"/></td>
+
+    <td>
+        {if $chongzhi['chongzhi_type']=='1'}<span class="label label-success">充值</span>
+        {elseif $chongzhi['chongzhi_type']=='2'}<span class="label label-danger">消费</span>
+        {else}{/if}
+    </td>
 
 
+    <td>{$chongzhi['chongzhi_jinbi']}</td>
 
-<td>{php echo getnickname($_W['uniacid'],$chongzhi['openid']);}</td>
-
-<td><img style="width:60px;height:60px;border-radius:50%;" src="{php echo getavatar($_W['uniacid'],$chongzhi['openid']);}"/></td>
-
-<td>
-{if $chongzhi['chongzhi_type']=='1'}<span class="label label-success">充值</span>
-{elseif $chongzhi['chongzhi_type']=='2'}<span class="label label-danger">消费</span>
-{else}{/if}
-</td>
+    <td>{$chongzhi['order_money']}</td>
 
 
-<td>{$chongzhi['chongzhi_jinbi']}</td>
+    <td>
+        {php echo date('Y-m-d H:i:s',$chongzhi['chongzhi_time']);}<br/>
 
-<td>{$chongzhi['order_money']}</td>
-
-
-
-
-<td>
-{php echo date('Y-m-d H:i:s',$chongzhi['chongzhi_time']);}<br/>
-
-
-{$chongzhi['chongzhi_ip']}<br/>
-{$chongzhi['chongzhi_container']}<br/>
-{$chongzhi['chongzhi_os']}
-</td>
-
+        {$chongzhi['chongzhi_ip']}<br/>
+        {$chongzhi['chongzhi_container']}<br/>
+        {$chongzhi['chongzhi_os']}
+    </td>
 
 
 </tr>

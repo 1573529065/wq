@@ -165,7 +165,7 @@
 				<div class="panel panel-menu">
 					<?php  if($frame_section['title']) { ?>
 					<div class="panel-heading">
-						<span class="no-collapse"><?php  echo $frame_section['title'];?><i class="wi wi-appsetting pull-right setting"></i></span>
+						<span class="no-collapse">111<?php  echo $frame_section['title'];?><i class="wi wi-appsetting pull-right setting"></i></span>
 					</div>
 					<?php  } ?>
 					<ul class="list-group">
@@ -173,7 +173,7 @@
 							<?php  if(!empty($menu['is_display'])) { ?>
 								<?php  if($menu_id == 'platform_module_more') { ?>
 									<li class="list-group-item list-group-more">
-										<a href="<?php  echo $menu['url']?>"><span class="label label-more">更多应用</span></a>
+										<a href="<?php  echo $menu['url']?>">111<span class="label label-more">更多应用</span></a>
 									</li>
 								<?php  } else { ?>
 									<?php  if((in_array($_W['role'], array(ACCOUNT_MANAGE_NAME_OWNER, ACCOUNT_MANAGE_NAME_FOUNDER, ACCOUNT_MANAGE_NAME_VICE_FOUNDER)) && $menu_id == 'front_download' || $menu_id != 'front_download') && !($menu_id == 'platform_menu' && $_W['account']['level'] == ACCOUNT_SUBSCRIPTION) || $_W['account']['type'] == ACCOUNT_TYPE_XZAPP_NORMAL) { ?>
@@ -250,7 +250,6 @@
 											<i class="<?php  echo $menu['icon'];?>"></i>
 											<?php  } ?>
 										<?php  } ?>
-										<?php  echo $menu['title'];?>
 										</a>
 									</li>
 									<?php  } ?>

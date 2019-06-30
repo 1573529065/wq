@@ -2,12 +2,18 @@
 <div>
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active"><a class="tablink" data-itemv="0" href="#home" aria-controls="home" role="tab" data-toggle="tab">所有活动</a></li>
-        <li role="presentation"><a class="tablink" data-itemv="5" href="#profile" aria-controls="profile" role="tab" data-toggle="tab">已结束</a></li>
-        <li role="presentation"><a class="tablink" data-itemv="4" href="#messages" aria-controls="messages" role="tab" data-toggle="tab">进行中</a></li>
-        <li role="presentation"><a class="tablink" data-itemv="3" href="#settings" aria-controls="settings" role="tab" data-toggle="tab">报名中</a></li>
-        <li role="presentation"><a class="tablink" data-itemv="2" href="#one" aria-controls="one" role="tab" data-toggle="tab">待审核</a></li>
-        <li role="presentation"><a class="tablink" data-itemv="1" href="#two" aria-controls="two" role="tab" data-toggle="tab">已屏蔽</a></li>
+        <li role="presentation" class="active"><a class="tablink" data-itemv="0" href="#home" aria-controls="home"
+                                                  role="tab" data-toggle="tab">所有活动</a></li>
+        <li role="presentation"><a class="tablink" data-itemv="5" href="#profile" aria-controls="profile" role="tab"
+                                   data-toggle="tab">已结束</a></li>
+        <li role="presentation"><a class="tablink" data-itemv="4" href="#messages" aria-controls="messages" role="tab"
+                                   data-toggle="tab">进行中</a></li>
+        <li role="presentation"><a class="tablink" data-itemv="3" href="#settings" aria-controls="settings" role="tab"
+                                   data-toggle="tab">报名中</a></li>
+        <li role="presentation"><a class="tablink" data-itemv="2" href="#one" aria-controls="one" role="tab"
+                                   data-toggle="tab">待审核</a></li>
+        <li role="presentation"><a class="tablink" data-itemv="1" href="#two" aria-controls="two" role="tab"
+                                   data-toggle="tab">已屏蔽</a></li>
     </ul>
 
     <!-- Tab panes -->
@@ -20,11 +26,12 @@
                     <table class="table table-hover">
                         {template 'web/banner/active'}
                         <tbody>
-                            {loop $active $key $active}
-                            {template 'web/page/active_list'}
-                            {/loop}
+                        {loop $active $key $active}
+                        {template 'web/page/active_list'}
+                        {/loop}
                         </tbody>
-                    </table>{$pagination_0}
+                    </table>
+                    {$pagination_0}
                 </div>
             </div>
             <!--列表循环结束-->
@@ -37,11 +44,12 @@
                     <table class="table table-hover">
                         {template 'web/banner/active'}
                         <tbody>
-                            {loop $active5 $key $active}
-                            {template 'web/page/active_list'}
-                            {/loop}
+                        {loop $active5 $key $active}
+                        {template 'web/page/active_list'}
+                        {/loop}
                         </tbody>
-                    </table>{$pagination_5}
+                    </table>
+                    {$pagination_5}
                 </div>
             </div>
             <!--列表循环结束-->
@@ -55,11 +63,12 @@
                     <table class="table table-hover">
                         {template 'web/banner/active'}
                         <tbody>
-                            {loop $active4 $key $active}
-                            {template 'web/page/active_list'}
-                            {/loop}
+                        {loop $active4 $key $active}
+                        {template 'web/page/active_list'}
+                        {/loop}
                         </tbody>
-                    </table>{$pagination_4}
+                    </table>
+                    {$pagination_4}
                 </div>
             </div>
             <!--列表循环结束-->
@@ -72,11 +81,12 @@
                     <table class="table table-hover">
                         {template 'web/banner/active'}
                         <tbody>
-                            {loop $active3 $key $active}
-                            {template 'web/page/active_list'}
-                            {/loop}
+                        {loop $active3 $key $active}
+                        {template 'web/page/active_list'}
+                        {/loop}
                         </tbody>
-                    </table>{$pagination_3}
+                    </table>
+                    {$pagination_3}
                 </div>
             </div>
             <!--列表循环结束-->
@@ -89,11 +99,12 @@
                     <table class="table table-hover">
                         {template 'web/banner/active'}
                         <tbody>
-                            {loop $active2 $key $active}
-                            {template 'web/page/active_list'}
-                            {/loop}
+                        {loop $active2 $key $active}
+                        {template 'web/page/active_list'}
+                        {/loop}
                         </tbody>
-                    </table>{$pagination_2}
+                    </table>
+                    {$pagination_2}
                 </div>
             </div>
             <!--列表循环结束-->
@@ -106,11 +117,12 @@
                     <table class="table table-hover">
                         {template 'web/banner/active'}
                         <tbody>
-                            {loop $active1 $key $active}
-                            {template 'web/page/active_list'}
-                            {/loop}
+                        {loop $active1 $key $active}
+                        {template 'web/page/active_list'}
+                        {/loop}
                         </tbody>
-                    </table>{$pagination_1}
+                    </table>
+                    {$pagination_1}
                 </div>
             </div>
             <!--列表循环结束-->
@@ -119,7 +131,7 @@
 </div>
 <script type="text/javascript">
     var flag = 0;
-    $('.tablink').click(function() {
+    $('.tablink').click(function () {
         if (flag == 1) {
             return;
         }
@@ -130,11 +142,11 @@
                 url: '{php echo $this->createWebUrl('setpageparam');}',
                 type: 'post',
                 dataType: 'text',
-                data: {set_page_param:post_v},
-                success:function(data){
+                data: {set_page_param: post_v},
+                success: function (data) {
                     flag = 0;
-                }                
-            });            
+                }
+            });
         }
     });
     $("a[data-itemv$='{$hit_tab}']").click();

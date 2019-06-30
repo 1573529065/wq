@@ -165,7 +165,7 @@
 				<div class="panel panel-menu">
 					{if $frame_section['title']}
 					<div class="panel-heading">
-						<span class="no-collapse">{$frame_section['title']}<i class="wi wi-appsetting pull-right setting"></i></span>
+						<span class="no-collapse">111{$frame_section['title']}<i class="wi wi-appsetting pull-right setting"></i></span>
 					</div>
 					{/if}
 					<ul class="list-group">
@@ -187,7 +187,9 @@
 											{/if}
 										{/if}
 										{$menu['title']}
-										{if !empty($menu['need_upload']) && $action != 'front-download'}<i class="wi wi-info-sign color-red" style="font-size:14px;position:relative;bottom:4px"></i>{/if}
+										{if !empty($menu['need_upload']) && $action != 'front-download'}
+										<i class="wi wi-info-sign color-red" style="font-size:14px;position:relative;bottom:4px"></i>
+										{/if}
 										</a>
 									</li>
 									{/if}
