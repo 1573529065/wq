@@ -187,7 +187,9 @@
 											<?php  } ?>
 										<?php  } ?>
 										<?php  echo $menu['title'];?>
-										<?php  if(!empty($menu['need_upload']) && $action != 'front-download') { ?><i class="wi wi-info-sign color-red" style="font-size:14px;position:relative;bottom:4px"></i><?php  } ?>
+										<?php  if(!empty($menu['need_upload']) && $action != 'front-download') { ?>
+										<i class="wi wi-info-sign color-red" style="font-size:14px;position:relative;bottom:4px"></i>
+										<?php  } ?>
 										</a>
 									</li>
 									<?php  } ?>
