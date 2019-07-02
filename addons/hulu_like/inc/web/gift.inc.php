@@ -22,7 +22,7 @@ if ($_W['ispost']) {
 } else {
     $pageSize = 20;
     $pageIndex = max(1, intval($_GPC['page']));
-    $sql_count = "SELECT count(*) FROM " . tablename('hulu_like_gift') . " WHERE uniacid='".$_W['uniacid']."'";
+    $sql_count = "SELECT count(*) FROM " . tablename('hulu_like_gift') . " WHERE uniacid='" . $_W['uniacid'] . "'";
     $gift = pdo_fetchall("SELECT * FROM" . tablename('hulu_like_gift') . "WHERE uniacid=:uniacid ORDER BY gift_id DESC LIMIT " . ($pageIndex - 1) * $pageSize . "," . $pageSize, array(':uniacid' => $_W['uniacid']));
     $total = pdo_fetchcolumn($sql_count);
     $pagination = pagination($total, $pageIndex, $pageSize);
