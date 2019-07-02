@@ -30,7 +30,7 @@ if ($_W['ispost']) {
             'make_bili_dashang' => $_GPC['make_bili_dashang'] / 100,
             'make_bili_liaotian' => $_GPC['make_bili_liaotian'] / 100,
             'make_bili_zanshang' => $_GPC['make_bili_zanshang'] / 100,
-			'make_sj_bl' => $_GPC['make_sj_bl'] / 100,
+            'make_sj_bl' => $_GPC['make_sj_bl'] / 100,
             'make_tixian_time' => $_GPC['make_tixian_time'],
             'make_tixian_money' => $_GPC['make_tixian_money'],
             'make_kefu_qrcode' => $_GPC['make_kefu_qrcode'],
@@ -92,7 +92,7 @@ if ($_W['ispost']) {
         );
         pdo_insert('hulu_like_make', $makedata);
     } else {
-        
+
     }
     $make = pdo_fetch("SELECT * FROM" . tablename('hulu_like_make') . "WHERE uniacid=:uniacid", array(':uniacid' => $_W['uniacid']));
 

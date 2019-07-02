@@ -1,6 +1,6 @@
 <?php
 global $_W, $_GPC;
-include"function.php";
+include "function.php";
 
 $sql = "";
 $type = $_GPC['type'];

@@ -3,8 +3,8 @@ global $_W, $_GPC;
 if ($_W['ispost']) {
     if (checksubmit('submit')) {
         $sham = pdo_fetchall("SELECT * FROM" . tablename('hulu_like_user') . "WHERE uniacid=:uniacid AND sham=:sham ORDER BY uid DESC", array(':uniacid' => $_W['uniacid'], ':sham' => '2'));
-		
-		$moni_sham = pdo_fetchall("SELECT * FROM" . tablename('hulu_like_sham') . "WHERE uniacid=:uniacid ORDER BY sham_id ASC", array(':uniacid' => $_W['uniacid']));
+
+        $moni_sham = pdo_fetchall("SELECT * FROM" . tablename('hulu_like_sham') . "WHERE uniacid=:uniacid ORDER BY sham_id ASC", array(':uniacid' => $_W['uniacid']));
         $sham_num = $_GPC['sham_num'];
         for ($x = 1; $x <= $sham_num; $x++) {
             $openid = 'abcd' . ((count($sham)) + $x);

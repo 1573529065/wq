@@ -24,20 +24,20 @@ if ($_W['ispost']) {
     $get_page_1 = 0;
     $pageSize = 15;
     $hit_tab = ($_SESSION['set_page_param'] > 0 ? $_SESSION['set_page_param'] : 0);
-    ${'get_page_'. $hit_tab} = intval($_GPC['page']);
+    ${'get_page_' . $hit_tab} = intval($_GPC['page']);
 
     $pageIndex = max(1, $get_page_0);
-    $sql_count = "SELECT count(*) FROM " . tablename('hulu_like_user') . " WHERE uniacid='".$_W['uniacid']."' AND sham=2";
+    $sql_count = "SELECT count(*) FROM " . tablename('hulu_like_user') . " WHERE uniacid='" . $_W['uniacid'] . "' AND sham=2";
     $user = pdo_fetchall("SELECT * FROM" . tablename('hulu_like_user') . "WHERE uniacid=:uniacid AND sham=2 ORDER BY uid DESC LIMIT " . ($pageIndex - 1) * $pageSize . "," . $pageSize, array(':uniacid' => $_W['uniacid']));
     $total = pdo_fetchcolumn($sql_count);
     $pagination_0 = pagination($total, $pageIndex, $pageSize);
 
     $pageIndex = max(1, $get_page_1);
-    $sql_count = "SELECT count(*) FROM " . tablename('hulu_like_sham') . " WHERE uniacid='".$_W['uniacid']."'";
+    $sql_count = "SELECT count(*) FROM " . tablename('hulu_like_sham') . " WHERE uniacid='" . $_W['uniacid'] . "'";
     $moni_sham = pdo_fetchall("SELECT * FROM" . tablename('hulu_like_sham') . "WHERE uniacid=:uniacid ORDER BY sham_id DESC LIMIT " . ($pageIndex - 1) * $pageSize . "," . $pageSize, array(':uniacid' => $_W['uniacid']));
     $total = pdo_fetchcolumn($sql_count);
     $pagination_1 = pagination($total, $pageIndex, $pageSize);
-    
+
     include $this->template('web/moni');
 }
 ?>

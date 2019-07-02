@@ -1,7 +1,7 @@
 <?php
 global $_W, $_GPC;
 if ($_W['ispost']) {
-    if (checksubmit('submit')) {      
+    if (checksubmit('submit')) {
         $link = $_GPC['link'];
         if (!$link) {
             $menu_data = $this->get_table_row('hulu_like_menu', $_GPC['id']);
