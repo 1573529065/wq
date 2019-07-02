@@ -3,11 +3,9 @@
 <div class="panel panel-default">
     <div class="panel-heading">添加广告</div>
     <div class="panel-body">
-
         <!--表单开始-->
 
         <form class="form-horizontal" role="form" action="" method="POST">
-
 
             <div class="form-group">
                 <label class="col-sm-2 control-label">广告名称</label>
@@ -59,7 +57,6 @@
 
                 </div>
             </div>
-
 
             <div class="form-group">
                 <label class="col-sm-2 control-label">广告图片</label>

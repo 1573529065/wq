@@ -3,7 +3,8 @@
 <div>
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">管理消息</a></li>
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab"
+                                                  data-toggle="tab">管理消息</a></li>
         <!--
     <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
     <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
@@ -13,18 +14,19 @@
     <!-- Tab panes -->
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="home">
-            <!--列表循环开始-->	
+            <!--列表循环开始-->
             <div class="panel panel-default">
                 <div class="panel-heading">管理消息</div>
                 <div class="panel-body">
                     <table class="table table-hover">
                         <?php (!empty($this) && $this instanceof WeModuleSite || 1) ? (include $this->template('web/banner/chat', TEMPLATE_INCLUDEPATH)) : (include template('web/banner/chat', TEMPLATE_INCLUDEPATH));?>
                         <tbody>
-                            <?php  if(is_array($chat)) { foreach($chat as $key => $chat) { ?>
-                            <?php (!empty($this) && $this instanceof WeModuleSite || 1) ? (include $this->template('web/page/chat_list', TEMPLATE_INCLUDEPATH)) : (include template('web/page/chat_list', TEMPLATE_INCLUDEPATH));?>
-                            <?php  } } ?>
+                        <?php  if(is_array($chat)) { foreach($chat as $key => $chat) { ?>
+                        <?php (!empty($this) && $this instanceof WeModuleSite || 1) ? (include $this->template('web/page/chat_list', TEMPLATE_INCLUDEPATH)) : (include template('web/page/chat_list', TEMPLATE_INCLUDEPATH));?>
+                        <?php  } } ?>
                         </tbody>
-                    </table><?php  echo $pagination;?>
+                    </table>
+                    <?php  echo $pagination;?>
                 </div>
             </div>
             <!--列表循环结束-->

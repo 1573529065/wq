@@ -1,0 +1,45 @@
+<div class="panel panel-default">
+    <div class="panel-heading">添加财务订单</div>
+    <div class="panel-body">
+        <!--表单开始-->
+        <form class="form-horizontal" role="form" action="" method="POST">
+            <!--表单开始-->
+            <div class="form-group">
+                <label class="col-sm-2 control-label">用户昵称</label>
+                <div class="col-sm-8">
+                    <input type="text" name="nickname" value="" class="form-control" placeholder="请输入用户昵称">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">订单价格</label>
+                <div class="col-sm-8">
+                    <div class="input-group">
+                        <input type="text" name="money" value="" class="form-control" placeholder="请输入订单价格">
+                        <div class="input-group-addon">元</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">订单状态</label>
+                <div class="col-sm-8">
+                    <input type="text" name="status" value="" class="form-control form-control-static" placeholder="1待支付 2支付成功 3支付失败">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">用户图片</label>
+                <div class="col-sm-8">
+                    {php echo tpl_form_field_image('avatar');}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <input class="btn btn-default" type="submit" name="submit" value="提 交">
+                </div>
+            </div>
+            <input type="hidden" name="token" value="{$_W['token']}"/>
+        </form>
+        <!--表单结束-->
+    </div>
+</div>

@@ -1,0 +1,53 @@
+{template 'common/header'}
+
+<script language="JavaScript" src="{MODULE_URL}template/web/js.js"></script>
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#count" role="tab" data-toggle="tab">财务统计</a></li>
+    <li role="presentation"><a href="#home" role="tab" data-toggle="tab">财务管理</a></li>
+    <li role="presentation"><a href="#profile" role="tab" data-toggle="tab">添加</a></li>
+    <!--
+    <li role="presentation"><a href="#messages" role="tab" data-toggle="tab">Messages</a></li>
+    <li role="presentation"><a href="#settings" role="tab" data-toggle="tab">Settings</a></li>
+    -->
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+
+    <div role="tabpanel" class="tab-pane active" id="count">
+        {template 'web/page/finance_count'}
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="home">
+        <!--列表循环开始-->
+        <div class="panel panel-default">
+            <div class="panel-heading">财务管理</div>
+            <div class="panel-body">
+                <table class="table table-hover">
+                    {template 'web/banner/finance'}
+                    <tbody>
+                    {loop $financeList $key $finance}
+                    {template 'web/page/finance_list'}
+                    {/loop}
+                    </tbody>
+                </table>
+                {$pagination}
+            </div>
+        </div>
+        <!--列表循环结束-->
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="profile">
+        {template 'web/page/finance_add'}
+    </div>
+
+    <!--
+    <div role="tabpanel" class="tab-pane" id="messages">...</div>
+    <div role="tabpanel" class="tab-pane" id="settings">...</div>
+    -->
+</div>
+
+
+{template 'common/footer'}
