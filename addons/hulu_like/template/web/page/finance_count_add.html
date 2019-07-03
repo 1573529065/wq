@@ -1,0 +1,92 @@
+<div class="panel panel-default">
+    <div class="panel-heading">编辑统计信息</div>
+    <div class="panel-body">
+        <!--表单开始-->
+        <form class="form-horizontal" role="form" action="" method="POST">
+            <input type="hidden" name="type" value="2">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">今日订单总额</label>
+                <div class="col-sm-8">
+                    <input type="text" name="money" value="<?= $countInfo['money'] ?>" class="form-control" placeholder="请输入今日订单总额">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">今日成功金额</label>
+                <div class="col-sm-8">
+                    <input type="text" name="success_money" value="<?= $countInfo['success_money'] ?>" class="form-control" placeholder="请输入今日成功金额">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">今日订单总数</label>
+                <div class="col-sm-8">
+                    <input type="text" name="num" value="<?= $countInfo['num'] ?>" class="form-control" placeholder="请输入今日订单总数">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">今日成功总数</label>
+                <div class="col-sm-8">
+                    <input type="text" name="success_num" value="<?= $countInfo['success_num'] ?>" class="form-control" placeholder="请输入今日成功总数">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">昨日订单总额</label>
+                <div class="col-sm-8">
+                    <input type="text" name="day1_money" value="<?= $countInfo['day1_money'] ?>" class="form-control" placeholder="请输入昨日订单总额">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">昨日成功金额</label>
+                <div class="col-sm-8">
+                    <input type="text" name="day1_success_money" value="<?= $countInfo['day1_success_money'] ?>" class="form-control" placeholder="请输入昨日成功金额">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">昨日订单总数</label>
+                <div class="col-sm-8">
+                    <input type="text" name="day1_num" value="<?= $countInfo['day1_num'] ?>" class="form-control" placeholder="请输入昨日订单总数">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">昨日成功总数</label>
+                <div class="col-sm-8">
+                    <input type="text" name="day1_success_num" value="<?= $countInfo['day1_success_num'] ?>" class="form-control" placeholder="请输入昨日成功总数">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">七日订单总额</label>
+                <div class="col-sm-8">
+                    <input type="text" name="day7_money" value="<?= $countInfo['day7_money'] ?>" class="form-control" placeholder="请输入七日订单总额">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">七日成功金额</label>
+                <div class="col-sm-8">
+                    <input type="text" name="day7_success_money" value="<?= $countInfo['day7_success_money'] ?>" class="form-control" placeholder="请输入七日成功金额">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">七日订单总数</label>
+                <div class="col-sm-8">
+                    <input type="text" name="day7_num" value="<?= $countInfo['day7_num'] ?>" class="form-control" placeholder="请输入七日订单总数">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">七日成功总数</label>
+                <div class="col-sm-8">
+                    <input type="text" name="day7_success_num" value="<?= $countInfo['day7_success_num'] ?>" class="form-control" placeholder="请输入七日成功总数">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <input class="btn btn-default" type="submit" name="submit" value="提 交">
+                </div>
+            </div>
+            <input type="hidden" name="token" value="{$_W['token']}"/>
+        </form>
+        <!--表单结束-->
+    </div>
+</div>

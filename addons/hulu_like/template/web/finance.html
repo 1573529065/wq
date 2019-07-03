@@ -6,6 +6,7 @@
 <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active"><a href="#count" role="tab" data-toggle="tab">财务统计</a></li>
     <li role="presentation"><a href="#home" role="tab" data-toggle="tab">财务管理</a></li>
+    <li role="presentation"><a href="#count_add" role="tab" data-toggle="tab">统计</a></li>
     <li role="presentation"><a href="#profile" role="tab" data-toggle="tab">查询</a></li>
     <!--
     <li role="presentation"><a href="#messages" role="tab" data-toggle="tab">Messages</a></li>
@@ -41,6 +42,10 @@
 
     <div role="tabpanel" class="tab-pane" id="profile">
         {template 'web/page/finance_add'}
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="count_add">
+        {template 'web/page/finance_count_add'}
     </div>
 
     <!--
