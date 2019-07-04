@@ -28,6 +28,9 @@ if ($_W['ispost']) {
                 $msg .= '不能为空';
                 message($msg);
             }
+            if (strtotime($_GPC['created_at']) == false){
+                message('时间格式错误');
+            }
 
             $data = array(
                 'nickname' => $_GPC['nickname'],
