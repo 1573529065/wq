@@ -1,14 +1,14 @@
 <?php defined('IN_IA') or exit('Access Denied');?><thead>
 <tr>
-<th>ID</th>
-<th>昵称</th>
-<th>头像</th>
+    <th>ID</th>
+    <th>昵称</th>
+    <th>头像</th>
 
-<th>聊天对象昵称</th>
-<th>聊天对象头像</th>
-<th>权限结束时间</th>
+    <th>聊天对象昵称</th>
+    <th>聊天对象头像</th>
+    <th>权限结束时间</th>
 
-<th>时间/IP/平台/设备</th>
+    <th>时间/IP/平台/设备</th>
 
 </tr>
 </thead>

@@ -1,0 +1,108 @@
+<div class="welcome-container">
+    <div class="welcome-container">
+        <div class="panel we7-panel account-stat">
+            <div class="panel-heading">
+                今日订单统计
+            </div>
+            <div class="panel-body we7-padding-vertical">
+                <div class="col-sm-3 text-center">
+                    <div class="title">今天订单总额</div>
+                    <div>
+                        <span class="yesterday" style="color: red" ng-init="0" ng-bind="fans_kpi.yesterday.cancel"><?= $countInfo['money'] ?></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 text-center">
+                    <div class="title">成功金额</div>
+                    <div>
+                        <span class="today" style="color: red" ng-init="0" ng-bind="fans_kpi.today.new"><?= $countInfo['success_money'] ?></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 text-center">
+                    <div class="title">订单总数</div>
+                    <div>
+                        <span class="yesterday" style="color: red" ng-init="0" ng-bind="fans_kpi.yesterday.cancel"><?= $countInfo['num'] ?></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 text-center">
+                    <div class="title">成功总数</div>
+                    <div>
+                        <span class="today" style="color: red" ng-init="0" ng-bind="fans_kpi.today.jing_num"><?= $countInfo['success_num'] ?></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="welcome-container">
+    <div class="welcome-container">
+        <div class="panel we7-panel account-stat">
+            <div class="panel-heading">
+                昨日日订单统计
+            </div>
+            <div class="panel-body we7-padding-vertical">
+                <div class="col-sm-3 text-center">
+                    <div class="title">昨日订单总额</div>
+                    <div>
+                        <span class="yesterday" style="color: red" ng-init="0" ng-bind="fans_kpi.yesterday.cancel"><?= $countInfo['day1_money'] ?></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 text-center">
+                    <div class="title">成功金额</div>
+                    <div>
+                        <span class="today" style="color: red" ng-init="0" ng-bind="fans_kpi.today.new"><?= $countInfo['day1_success_money'] ?></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 text-center">
+                    <div class="title">订单总数</div>
+                    <div>
+                        <span class="yesterday" style="color: red" ng-init="0" ng-bind="fans_kpi.yesterday.cancel"><?= $countInfo['day1_num'] ?></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 text-center">
+                    <div class="title">成功总数</div>
+                    <div>
+                        <span class="today" style="color: red" ng-init="0" ng-bind="fans_kpi.today.jing_num"><?= $countInfo['day1_success_num'] ?></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="welcome-container">
+    <div class="welcome-container">
+        <div class="panel we7-panel account-stat">
+            <div class="panel-heading">
+                近七日日订单统计
+            </div>
+            <div class="panel-body we7-padding-vertical">
+                <div class="col-sm-3 text-center">
+                    <div class="title">订单总额</div>
+                    <div>
+                        <span class="yesterday" style="color: red" ng-init="0" ng-bind="fans_kpi.yesterday.cancel"><?= $countInfo['day7_money'] ?></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 text-center">
+                    <div class="title">成功金额</div>
+                    <div>
+                        <span class="today" style="color: red" ng-init="0" ng-bind="fans_kpi.today.new"><?= $countInfo['day7_success_money'] ?></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 text-center">
+                    <div class="title">订单总数</div>
+                    <div>
+                        <span class="yesterday" style="color: red" ng-init="0" ng-bind="fans_kpi.yesterday.cancel"><?= $countInfo['day7_num'] ?></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 text-center">
+                    <div class="title">成功总数</div>
+                    <div>
+                        <span class="today" style="color: red" ng-init="0" ng-bind="fans_kpi.today.jing_num"><?= $countInfo['day7_success_num'] ?></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -5,10 +5,14 @@
 
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active"><a class="tablink" data-itemv="0" href="#home" aria-controls="home" role="tab" data-toggle="tab">所有报名</a></li>
-        <li role="presentation"><a class="tablink" data-itemv="3" href="#profile" aria-controls="profile" role="tab" data-toggle="tab">已成功</a></li>
-        <li role="presentation"><a class="tablink" data-itemv="2" href="#messages" aria-controls="messages" role="tab" data-toggle="tab">未支付</a></li>
-        <li role="presentation"><a class="tablink" data-itemv="1" href="#settings" aria-controls="settings" role="tab" data-toggle="tab">已失败</a></li>
+        <li role="presentation" class="active"><a class="tablink" data-itemv="0" href="#home" aria-controls="home"
+                                                  role="tab" data-toggle="tab">所有报名</a></li>
+        <li role="presentation"><a class="tablink" data-itemv="3" href="#profile" aria-controls="profile" role="tab"
+                                   data-toggle="tab">已成功</a></li>
+        <li role="presentation"><a class="tablink" data-itemv="2" href="#messages" aria-controls="messages" role="tab"
+                                   data-toggle="tab">未支付</a></li>
+        <li role="presentation"><a class="tablink" data-itemv="1" href="#settings" aria-controls="settings" role="tab"
+                                   data-toggle="tab">已失败</a></li>
     </ul>
 
     <!-- Tab panes -->
@@ -22,11 +26,12 @@
                     <table class="table table-hover">
                         <?php (!empty($this) && $this instanceof WeModuleSite || 1) ? (include $this->template('web/banner/join', TEMPLATE_INCLUDEPATH)) : (include template('web/banner/join', TEMPLATE_INCLUDEPATH));?>
                         <tbody>
-                            <?php  if(is_array($join)) { foreach($join as $key => $join) { ?>
-                            <?php (!empty($this) && $this instanceof WeModuleSite || 1) ? (include $this->template('web/page/join_list', TEMPLATE_INCLUDEPATH)) : (include template('web/page/join_list', TEMPLATE_INCLUDEPATH));?>
-                            <?php  } } ?>
+                        <?php  if(is_array($join)) { foreach($join as $key => $join) { ?>
+                        <?php (!empty($this) && $this instanceof WeModuleSite || 1) ? (include $this->template('web/page/join_list', TEMPLATE_INCLUDEPATH)) : (include template('web/page/join_list', TEMPLATE_INCLUDEPATH));?>
+                        <?php  } } ?>
                         </tbody>
-                    </table><?php  echo $pagination_0;?>
+                    </table>
+                    <?php  echo $pagination_0;?>
                 </div>
             </div>
             <!--列表循环结束-->
@@ -41,11 +46,12 @@
                     <table class="table table-hover">
                         <?php (!empty($this) && $this instanceof WeModuleSite || 1) ? (include $this->template('web/banner/join', TEMPLATE_INCLUDEPATH)) : (include template('web/banner/join', TEMPLATE_INCLUDEPATH));?>
                         <tbody>
-                            <?php  if(is_array($join3)) { foreach($join3 as $key => $join) { ?>
-                            <?php (!empty($this) && $this instanceof WeModuleSite || 1) ? (include $this->template('web/page/join_list', TEMPLATE_INCLUDEPATH)) : (include template('web/page/join_list', TEMPLATE_INCLUDEPATH));?>
-                            <?php  } } ?>
+                        <?php  if(is_array($join3)) { foreach($join3 as $key => $join) { ?>
+                        <?php (!empty($this) && $this instanceof WeModuleSite || 1) ? (include $this->template('web/page/join_list', TEMPLATE_INCLUDEPATH)) : (include template('web/page/join_list', TEMPLATE_INCLUDEPATH));?>
+                        <?php  } } ?>
                         </tbody>
-                    </table><?php  echo $pagination_3;?>
+                    </table>
+                    <?php  echo $pagination_3;?>
                 </div>
             </div>
             <!--列表循环结束-->
@@ -60,11 +66,12 @@
                     <table class="table table-hover">
                         <?php (!empty($this) && $this instanceof WeModuleSite || 1) ? (include $this->template('web/banner/join', TEMPLATE_INCLUDEPATH)) : (include template('web/banner/join', TEMPLATE_INCLUDEPATH));?>
                         <tbody>
-                            <?php  if(is_array($join2)) { foreach($join2 as $key => $join) { ?>
-                            <?php (!empty($this) && $this instanceof WeModuleSite || 1) ? (include $this->template('web/page/join_list', TEMPLATE_INCLUDEPATH)) : (include template('web/page/join_list', TEMPLATE_INCLUDEPATH));?>
-                            <?php  } } ?>
+                        <?php  if(is_array($join2)) { foreach($join2 as $key => $join) { ?>
+                        <?php (!empty($this) && $this instanceof WeModuleSite || 1) ? (include $this->template('web/page/join_list', TEMPLATE_INCLUDEPATH)) : (include template('web/page/join_list', TEMPLATE_INCLUDEPATH));?>
+                        <?php  } } ?>
                         </tbody>
-                    </table><?php  echo $pagination_2;?>
+                    </table>
+                    <?php  echo $pagination_2;?>
                 </div>
             </div>
             <!--列表循环结束-->
@@ -79,11 +86,12 @@
                     <table class="table table-hover">
                         <?php (!empty($this) && $this instanceof WeModuleSite || 1) ? (include $this->template('web/banner/join', TEMPLATE_INCLUDEPATH)) : (include template('web/banner/join', TEMPLATE_INCLUDEPATH));?>
                         <tbody>
-                            <?php  if(is_array($join1)) { foreach($join1 as $key => $join) { ?>
-                            <?php (!empty($this) && $this instanceof WeModuleSite || 1) ? (include $this->template('web/page/join_list', TEMPLATE_INCLUDEPATH)) : (include template('web/page/join_list', TEMPLATE_INCLUDEPATH));?>
-                            <?php  } } ?>
+                        <?php  if(is_array($join1)) { foreach($join1 as $key => $join) { ?>
+                        <?php (!empty($this) && $this instanceof WeModuleSite || 1) ? (include $this->template('web/page/join_list', TEMPLATE_INCLUDEPATH)) : (include template('web/page/join_list', TEMPLATE_INCLUDEPATH));?>
+                        <?php  } } ?>
                         </tbody>
-                    </table><?php  echo $pagination_1;?>
+                    </table>
+                    <?php  echo $pagination_1;?>
                 </div>
             </div>
             <!--列表循环结束-->
@@ -94,7 +102,7 @@
 </div>
 <script type="text/javascript">
     var flag = 0;
-    $('.tablink').click(function() {
+    $('.tablink').click(function () {
         if (flag == 1) {
             return;
         }
@@ -105,11 +113,11 @@
                 url: '<?php  echo $this->createWebUrl('setpageparam');?>',
                 type: 'post',
                 dataType: 'text',
-                data: {set_page_param:post_v},
-                success:function(data){
+                data: {set_page_param: post_v},
+                success: function (data) {
                     flag = 0;
-                }                
-            });            
+                }
+            });
         }
     });
     $("a[data-itemv$='<?php  echo $hit_tab;?>']").click();

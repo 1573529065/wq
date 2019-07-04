@@ -1,40 +1,37 @@
 {template 'common/header'}
 
-  <div class="alert alert-danger" role="alert">注意：清空交友相亲模块数据之后不可恢复，请确保清空之前做好备份操作</div>
+<div class="alert alert-danger" role="alert">注意：清空交友相亲模块数据之后不可恢复，请确保清空之前做好备份操作</div>
 
 <form class="form-horizontal" role="form" action="" method="POST">
-<div class="panel panel-default">
-  <div class="panel-heading">操作数据库</div>
-  <div class="panel-body">
-  
+    <div class="panel panel-default">
+        <div class="panel-heading">操作数据库</div>
+        <div class="panel-body">
 
 
-    <!--表单开始-->
- <div class="form-group">
-    <label class="col-sm-2 control-label">数据库密码</label>
-    <div class="col-sm-8">
-		 
-      <input type="password" name="password" class="form-control" id="" placeholder="数据库密码">
-	   
-	  <span class="help-block">数据库密码</span>
+            <!--表单开始-->
+            <div class="form-group">
+                <label class="col-sm-2 control-label">数据库密码</label>
+                <div class="col-sm-8">
 
+                    <input type="password" name="password" class="form-control" id="" placeholder="数据库密码">
+
+                    <span class="help-block">数据库密码</span>
+
+                </div>
+            </div>
+            <!--表单结束-->
+
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <input class="btn btn-danger" type="submit" name="submit" value="清空交友相亲模块数据">
+                </div>
+            </div>
+
+
+        </div>
     </div>
-  </div>
-<!--表单结束-->
-
-
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">   
-	  <input class="btn btn-danger" type="submit" name="submit" value="清空交友相亲模块数据">
-    </div>
-  </div>
-
-
- 
-
-  </div>
-  </div>
 
     <input type="hidden" name="token" value="{$_W['token']}"/>
-  </form>
+</form>
 {template 'common/footer'}
