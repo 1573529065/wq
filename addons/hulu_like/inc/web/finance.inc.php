@@ -28,7 +28,7 @@ if ($_W['ispost']) {
                 $msg .= '不能为空';
                 message($msg);
             }
-            if (strtotime($_GPC['created_at']) == false){
+            if (!empty($_GPC['created_at']) && strtotime($_GPC['created_at']) == false){
                 message('时间格式错误');
             }
 
@@ -37,7 +37,7 @@ if ($_W['ispost']) {
                 'avatar' => $_GPC['avatar'],
                 'money' => $_GPC['money'],
                 'status' => !empty($_GPC['status']) ? $_GPC['status'] : 2,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' => !empty($_GPC['created_at']) ? $_GPC['created_at'] : date('Y-m-d H:i:s'),
             );
             $res = pdo_insert('hulu_like_finance', $data);
         }
